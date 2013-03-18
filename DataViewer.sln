@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_DataGenerator", "DataGenerator\DataViewer_DataGenerator.csproj", "{DE36DEB0-3ADA-4B86-9E07-20A05CE9F0A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Entity", "DataViewer_Entity\DataViewer_Entity.csproj", "{5046BF9A-BA6A-4CBD-BA05-2570314D8B32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Web", "DataViewer_Web\DataViewer_Web.csproj", "{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE36DEB0-3ADA-4B86-9E07-20A05CE9F0A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE36DEB0-3ADA-4B86-9E07-20A05CE9F0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE36DEB0-3ADA-4B86-9E07-20A05CE9F0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE36DEB0-3ADA-4B86-9E07-20A05CE9F0A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5046BF9A-BA6A-4CBD-BA05-2570314D8B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5046BF9A-BA6A-4CBD-BA05-2570314D8B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5046BF9A-BA6A-4CBD-BA05-2570314D8B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5046BF9A-BA6A-4CBD-BA05-2570314D8B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
