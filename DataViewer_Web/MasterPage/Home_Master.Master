@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home_Master.master.cs" Inherits="DataViewer_Web.MasterPage.Home_Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" href="/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="/Index.aspx">工地扬尘监测网</a>
+                <asp:ContentPlaceHolder ID="NavContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPart" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

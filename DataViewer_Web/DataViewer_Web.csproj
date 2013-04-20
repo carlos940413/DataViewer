@@ -57,10 +57,43 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxPage\AverageConcentration_Ajax.aspx" />
+    <Content Include="AjaxPage\ProjectDetails_Ajax.aspx" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="DataProcessingPage.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="ProjectDetailsPage.aspx" />
+    <Content Include="ProjectPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjaxPage\AverageConcentration_Ajax.aspx.cs">
+      <DependentUpon>AverageConcentration_Ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxPage\AverageConcentration_Ajax.aspx.designer.cs">
+      <DependentUpon>AverageConcentration_Ajax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxPage\ProjectDetails_Ajax.aspx.cs">
+      <DependentUpon>ProjectDetails_Ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxPage\ProjectDetails_Ajax.aspx.designer.cs">
+      <DependentUpon>ProjectDetails_Ajax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataProcessingPage.aspx.cs">
+      <DependentUpon>DataProcessingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataProcessingPage.aspx.designer.cs">
+      <DependentUpon>DataProcessingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -68,9 +101,38 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Home_Master.Master.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Home_Master.Master.designer.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDetailsPage.aspx.cs">
+      <DependentUpon>ProjectDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDetailsPage.aspx.designer.cs">
+      <DependentUpon>ProjectDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPage.aspx.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectPage.aspx.designer.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage\Home_Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,6 +145,9 @@
       <Project>{5046bf9a-ba6a-4cbd-ba05-2570314d8b32}</Project>
       <Name>DataViewer_Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ManagementPage\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

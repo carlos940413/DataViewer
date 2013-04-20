@@ -21,6 +21,7 @@ namespace DataViewer_Entity
             EndOn_Fact = DateTime.MinValue;
             Location_East = 0;
             Location_North = 0;
+            Node_Phone = "";
         }
 
         #region Properties
@@ -111,6 +112,13 @@ namespace DataViewer_Entity
             get { return _Location_North; }
             set { _Location_North = value; }
         }
+
+        private string _Node_Phone;
+        public string Node_Phone
+        {
+            get { return _Node_Phone; }
+            set { _Node_Phone = value; }
+        }
         #endregion
 
         public void Save()
@@ -129,7 +137,8 @@ namespace DataViewer_Entity
                     new SqlParameter("@endon_plan", EndOn_Plan.Date),
                     new SqlParameter("@endon_fact", endOn_Fact),
                     new SqlParameter("@location_east", Location_East),
-                    new SqlParameter("@location_north", Location_North));
+                    new SqlParameter("@location_north", Location_North),
+                    new SqlParameter("@node_phone", Node_Phone));
             else
                 DBHelper.UpdateCommand("Project_Update", CommandType.StoredProcedure,
                     new SqlParameter("@id", ID),
@@ -140,7 +149,8 @@ namespace DataViewer_Entity
                     new SqlParameter("@endon_plan", EndOn_Plan.Date),
                     new SqlParameter("@endon_fact", endOn_Fact),
                     new SqlParameter("@location_east", Location_East),
-                    new SqlParameter("@location_north", Location_North));
+                    new SqlParameter("@location_north", Location_North),
+                    new SqlParameter("@node_phone", Node_Phone));
         }
 
         private static List<Project> toList(DataTable dt)
@@ -161,11 +171,17 @@ namespace DataViewer_Entity
                     project.EndOn_Fact = DateTime.Parse(row["endon_fact"].ToString());
                 project.Location_East = Double.Parse(row["location_east"].ToString());
                 project.Location_North = Double.Parse(row["location_north"].ToString());
+                project.Node_Phone = row["node_phone"].ToString();
                 result.Add(project);
             }
             return result;
         }
 
+        /// <summary>
+        /// 通过指定的项目id获取项目信息
+        /// </summary>
+        /// <param name="id">项目id</param>
+        /// <returns></returns>
         public static Project Get_ByID(int id)
         {
             List<Project> projects = toList(DBHelper.SelectCommand("Project_id", CommandType.StoredProcedure,
@@ -175,9 +191,36 @@ namespace DataViewer_Entity
             return projects[0];
         }
 
+        /// <summary>
+        /// 获取所有的项目
+        /// </summary>
+        /// <returns></returns>
         public static List<Project> Get_All()
         {
             return toList(DBHelper.SelectCommand("Project_all", CommandType.StoredProcedure));
+        }
+
+        /// <summary>
+        /// 通过项目名称模糊查询获取项目
+        /// </summary>
+        /// <param name="projectName">项目名称</param>
+        /// <returns></returns>
+        public static List<Project> Get_ByFuzzyProjectName(string projectName)
+        {
+            return toList(DBHelper.SelectCommand("Project_projectnameFuzzy", CommandType.StoredProcedure,
+                new SqlParameter("@projectname", projectName)));
+        }
+
+        /// <summary>
+        /// 通过项目是否完工查询项目
+        /// </summary>
+        /// <param name="finish">true表示已经完工, false表示没有完工. 数据库中没有完工的工程的endon_fact字段为null</param>
+        /// <returns></returns>
+        public static List<Project> Get_ByState(bool finish)
+        {
+            if (finish)
+                return toList(DBHelper.SelectCommand("Node_finish", CommandType.StoredProcedure));
+            return toList(DBHelper.SelectCommand("Node_unfinish", CommandType.StoredProcedure));
         }
     }
 }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Command>
+  <Reboot>FE 01 41 00 01 41</Reboot>
+  <Reset>FE 03 26 05 03 01 03 21</Reset>
+  <SetCoordinator>FC 00 91 09 A9 C9 08</SetCoordinator>
+  <SetCoordinatorSuccess>43 6F 6F 72 64 3B 00 19</SetCoordinatorSuccess>
+  <SetRouter>FC 00 91 0A BA DA 2B</SetRouter>
+  <SetRouterSuccess>52 6F 75 74 65 3B 00 19</SetRouterSuccess>
+  <GetNodeType>FC 00 91 0B CB EB 4E</GetNodeType>
+  <Coordinator>43 6F 6F 72 64 69</Coordinator>
+  <Router>52 6F 75 74 65 72</Router>
+</Command>
