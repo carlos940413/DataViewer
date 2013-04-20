@@ -39,7 +39,7 @@ namespace DataViewer_Entity
                 ID = DBHelper.InsertCommand("Company_Insert", CommandType.StoredProcedure,
                     new SqlParameter("@companyname", CompanyName));
             else
-                DBHelper.UpdateCommand("Company_Update", CommandType.StoredProcedure,
+                DBHelper.UpdateDeleteCommand("Company_Update", CommandType.StoredProcedure,
                     new SqlParameter("@id", ID),
                     new SqlParameter("@companyname", CompanyName));
         }
@@ -68,7 +68,7 @@ namespace DataViewer_Entity
                 new SqlParameter("@id", id)));
             if (temp.Count != 0)
                 return temp[0];
-            return new Company();
+            return null;
         }
 
         /// <summary>

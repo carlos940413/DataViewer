@@ -10,12 +10,10 @@ namespace DataViewer_Entity
 {
     public class Project : IEntity
     {
-        public Project()
+        private Project()
         {
             ID = 0;
             ProjectName = "";
-            Team = null;
-            Company = null;
             StartOn = DateTime.MinValue;
             EndOn_Plan = DateTime.MinValue;
             EndOn_Fact = DateTime.MinValue;
@@ -23,6 +21,13 @@ namespace DataViewer_Entity
             Location_North = 0;
             Node_Phone = "";
         }
+
+		public static Project CreateProject(Team team, Company company)
+		{
+			if (team == null || company == null || team.ID == 0 || company.ID == 0)
+				return null;
+			return new Project() { Team = team, Company = company };
+		}
 
         #region Properties
         private int _ID;
@@ -140,7 +145,7 @@ namespace DataViewer_Entity
                     new SqlParameter("@location_north", Location_North),
                     new SqlParameter("@node_phone", Node_Phone));
             else
-                DBHelper.UpdateCommand("Project_Update", CommandType.StoredProcedure,
+                DBHelper.UpdateDeleteCommand("Project_Update", CommandType.StoredProcedure,
                     new SqlParameter("@id", ID),
                     new SqlParameter("@projectname", ProjectName),
                     new SqlParameter("@teamid", Team.ID),
@@ -187,7 +192,7 @@ namespace DataViewer_Entity
             List<Project> projects = toList(DBHelper.SelectCommand("Project_id", CommandType.StoredProcedure,
                 new SqlParameter("@id", id)));
             if (projects.Count == 0)
-                return new Project();
+                return null;
             return projects[0];
         }
 
@@ -219,8 +224,8 @@ namespace DataViewer_Entity
         public static List<Project> Get_ByState(bool finish)
         {
             if (finish)
-                return toList(DBHelper.SelectCommand("Node_finish", CommandType.StoredProcedure));
-            return toList(DBHelper.SelectCommand("Node_unfinish", CommandType.StoredProcedure));
+                return toList(DBHelper.SelectCommand("Project_finish", CommandType.StoredProcedure));
+            return toList(DBHelper.SelectCommand("Project_unfinish", CommandType.StoredProcedure));
         }
     }
 }

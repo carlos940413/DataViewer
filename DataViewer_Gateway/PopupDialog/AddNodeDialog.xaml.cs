@@ -35,7 +35,7 @@ namespace DataViewer_Gateway.PopupDialog
 
         private void On_ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-			Node node = Node.Get_ByProjectID_HardwareID(project.ID, Int32.Parse(HardwareID_TextBox.Text));
+			Node node = Node.Get_ByAreaID_HardwareID(project.ID, Int32.Parse(HardwareID_TextBox.Text));
 			node.Project = project;
 			node.HardwareID = Int32.Parse(HardwareID_TextBox.Text);
             node.Description = Description_TextBox.Text;

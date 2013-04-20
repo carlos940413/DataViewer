@@ -60,7 +60,7 @@ namespace DataViewer_Entity
 
         private void Save()
         {
-            DBHelper.UpdateCommand("Concentration_Insert", CommandType.StoredProcedure,
+            DBHelper.UpdateDeleteCommand("Concentration_Insert", CommandType.StoredProcedure,
                 new SqlParameter("@nodeid", Node.ID),
                 new SqlParameter("@acquireon", AcquireOn),
                 new SqlParameter("@amount", Amount));

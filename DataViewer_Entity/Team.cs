@@ -39,7 +39,7 @@ namespace DataViewer_Entity
                 ID = DBHelper.InsertCommand("Team_Insert", CommandType.StoredProcedure,
                     new SqlParameter("@teamname", TeamName));
             else
-                DBHelper.UpdateCommand("Team_Update", CommandType.StoredProcedure,
+                DBHelper.UpdateDeleteCommand("Team_Update", CommandType.StoredProcedure,
                     new SqlParameter("@id", ID),
                     new SqlParameter("@teamname", TeamName));
         }
@@ -68,7 +68,7 @@ namespace DataViewer_Entity
                 new SqlParameter("@id", id)));
             if (temp.Count != 0)
                 return temp[0];
-            return new Team();
+            return null;
         }
 
         /// <summary>

@@ -38,7 +38,7 @@ namespace DataViewer_Gateway
 		{
 			if (Project_ComboBox.SelectedIndex >= 0)
 			{
-				Node_DataGrid.ItemsSource = Node.Get_ByProjectID((Project_ComboBox.SelectedItem as Project).ID);
+				Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
 				AddNode_Button.IsEnabled = true;
 				Register_Button.IsEnabled = true;
 				DeleteNode_Button.IsEnabled = true;
@@ -57,7 +57,7 @@ namespace DataViewer_Gateway
 			AddNodeDialog dialog = new AddNodeDialog((Project_ComboBox.SelectedItem as Project).ID);
 			dialog.Owner = this;
 			dialog.ShowDialog();
-			Node_DataGrid.ItemsSource = Node.Get_ByProjectID((Project_ComboBox.SelectedItem as Project).ID);
+			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
 		}
 
 		private void On_DeleteNodeButton_Click(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace DataViewer_Gateway
 			{
 				node.Delete();
 			}
-			Node_DataGrid.ItemsSource = Node.Get_ByProjectID((Project_ComboBox.SelectedItem as Project).ID);
+			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
 		}
 
 		private void On_RegisterButton_Click(object sender, RoutedEventArgs e)

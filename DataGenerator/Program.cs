@@ -96,7 +96,7 @@ namespace DataGenerator
 			List<Project> projects = Project.Get_All();
 			foreach (Project project in projects)
 			{
-				List<Node> nodes = Node.Get_ByProjectID(project.ID);
+				List<Node> nodes = Node.Get_ByAreaID(project.ID);
 				DateTime acquireTime = project.StartOn.AddHours(rand.Next(23)).AddMinutes(rand.Next(60)).AddSeconds(rand.Next(60));
 				for (int i = 0; i < countPerNode; i++)
 				{

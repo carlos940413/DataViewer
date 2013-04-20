@@ -104,7 +104,7 @@ namespace DataViewer_Web
                     else
                     {
                         Session["Project"] = project;
-                        Session["Nodes"] = Node.Get_ByProjectID((Session["Project"] as Project).ID);
+                        Session["Nodes"] = Node.Get_ByAreaID((Session["Project"] as Project).ID);
                     }
                 }
                 else

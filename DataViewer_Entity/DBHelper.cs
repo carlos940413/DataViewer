@@ -24,7 +24,7 @@ namespace DataViewer_Entity
             return Int32.Parse(dt.Rows[0][0].ToString());
         }
 
-        public static bool UpdateCommand(string commandString, CommandType type, params SqlParameter[] parameters)
+        public static bool UpdateDeleteCommand(string commandString, CommandType type, params SqlParameter[] parameters)
         {
             connection.Open();
             SqlCommand command = new SqlCommand(commandString, connection);
