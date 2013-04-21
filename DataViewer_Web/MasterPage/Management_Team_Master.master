@@ -1,12 +1,11 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/Management_Master.Master" AutoEventWireup="true" CodeBehind="Management_Company_Master.master.cs" Inherits="DataViewer_Web.MasterPage.Management_Company_Master" %>
-
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/Management_Master.Master" AutoEventWireup="true" CodeBehind="Management_Team_Master.master.cs" Inherits="DataViewer_Web.MasterPage.Management_Team_Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="NavContent" runat="server">
 	<ul class="nav">
-		<li class="active"><a href="/ManagementPage/CompanyPage.aspx">建设单位</a></li>
-		<li><a href="/ManagementPage/TeamPage.aspx">施工单位</a></li>
+		<li><a href="/ManagementPage/CompanyPage.aspx">建设单位</a></li>
+		<li class="active"><a href="/ManagementPage/TeamPage.aspx">施工单位</a></li>
 		<li><a>工程项目</a></li>
 		<li class="divider-vertical"></li>
 		<li class="divider-vertical"></li>

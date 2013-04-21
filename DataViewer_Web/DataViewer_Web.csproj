@@ -71,6 +71,9 @@
     <Content Include="ManagementPage\CompanyDetailsPage.aspx" />
     <Content Include="ManagementPage\CompanyEditPage.aspx" />
     <Content Include="ManagementPage\CompanyPage.aspx" />
+    <Content Include="ManagementPage\TeamDetailsPage.aspx" />
+    <Content Include="ManagementPage\TeamEditPage.aspx" />
+    <Content Include="ManagementPage\TeamPage.aspx" />
     <Content Include="ProjectDetailsPage.aspx" />
     <Content Include="ProjectPage.aspx" />
     <Content Include="Web.config" />
@@ -132,6 +135,27 @@
     <Compile Include="ManagementPage\CompanyPage.aspx.designer.cs">
       <DependentUpon>CompanyPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManagementPage\TeamDetailsPage.aspx.cs">
+      <DependentUpon>TeamDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\TeamDetailsPage.aspx.designer.cs">
+      <DependentUpon>TeamDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPage\TeamEditPage.aspx.cs">
+      <DependentUpon>TeamEditPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\TeamEditPage.aspx.designer.cs">
+      <DependentUpon>TeamEditPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPage\TeamPage.aspx.cs">
+      <DependentUpon>TeamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\TeamPage.aspx.designer.cs">
+      <DependentUpon>TeamPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\Home_Master.Master.cs">
       <DependentUpon>Home_Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,6 +177,13 @@
     <Compile Include="MasterPage\Management_Master.Master.designer.cs">
       <DependentUpon>Management_Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\Management_Team_Master.master.cs">
+      <DependentUpon>Management_Team_Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Management_Team_Master.master.designer.cs">
+      <DependentUpon>Management_Team_Master.master</DependentUpon>
+    </Compile>
     <Compile Include="ProjectDetailsPage.aspx.cs">
       <DependentUpon>ProjectDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,6 +204,7 @@
     <Content Include="MasterPage\Home_Master.Master" />
     <Content Include="MasterPage\Management_Master.Master" />
     <Content Include="MasterPage\Management_Company_Master.master" />
+    <Content Include="MasterPage\Management_Team_Master.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
