@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Management_Team_Master.master" AutoEventWireup="true" CodeBehind="TeamPage.aspx.cs" Inherits="DataViewer_Web.ManagementPage.TeamPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Team_Master.master" AutoEventWireup="true" CodeBehind="TeamPage.aspx.cs" Inherits="DataViewer_Web.TeamPage.TeamPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<style type="text/css">
 	 #<%=Search_Button.ClientID%>{
@@ -7,7 +7,9 @@
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
-	<li><a href="/ManagementPage/TeamEditPage.aspx">添加施工单位</a></li>
+	<li>
+		<asp:HyperLink ID="AddTeam_HyperLink" runat="server">添加施工单位</asp:HyperLink>
+	</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">
 	<form runat="server" class="form-search">
@@ -28,7 +30,7 @@
 							<ItemTemplate>
 								<div class="row-fluid ">
 									<div class="well">
-										<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/ManagementPage/TeamDetailsPage.aspx?id="+Eval("ID")%>'><%# Eval("TeamName") %></asp:HyperLink>
+										<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/TeamPage/TeamDetailsPage.aspx?id="+Eval("ID")%>'><%# Eval("TeamName") %></asp:HyperLink>
 									</div>
 								</div>
 							</ItemTemplate>

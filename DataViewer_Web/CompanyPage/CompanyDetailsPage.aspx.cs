@@ -21,7 +21,7 @@ namespace DataViewer_Web.CompanyPage
 				company = Company.Get_ByID(id);
 			}
 			if (company == null)
-				Response.Redirect("/ManagementPage/CompanyPage.aspx");
+				Response.Redirect("/CompanyPage/CompanyPage.aspx");
 		}
 	}
 }

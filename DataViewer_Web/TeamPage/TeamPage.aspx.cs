@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataViewer_Entity;
 
-namespace DataViewer_Web.ManagementPage
+namespace DataViewer_Web.TeamPage
 {
 	public partial class TeamPage : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			if (Session["Administrator"] == null)
+				AddTeam_HyperLink.Visible = false;
 		}
 
 		protected void On_SearchButton_Click(object sender, EventArgs e)

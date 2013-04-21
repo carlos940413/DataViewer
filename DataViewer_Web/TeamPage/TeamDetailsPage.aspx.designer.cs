@@ -7,18 +7,18 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DataViewer_Web.ManagementPage {
+namespace DataViewer_Web.TeamPage {
     
     
-    public partial class TeamEditPage {
+    public partial class TeamDetailsPage {
         
         /// <summary>
-        /// TeamName_TextBox 控件。
+        /// ChangeTeam_HyperLink 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TeamName_TextBox;
+        protected global::System.Web.UI.WebControls.HyperLink ChangeTeam_HyperLink;
     }
 }

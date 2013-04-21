@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Management_Team_Master.master" AutoEventWireup="true" CodeBehind="TeamDetailsPage.aspx.cs" Inherits="DataViewer_Web.ManagementPage.TeamDetailsPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Team_Master.master" AutoEventWireup="true" CodeBehind="TeamDetailsPage.aspx.cs" Inherits="DataViewer_Web.TeamPage.TeamDetailsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
-	<li><a href='<%= "/ManagementPage/TeamEditPage.aspx?id="+team.ID%>'>修改施工单位</a></li>
+	<li>
+		<asp:HyperLink ID="ChangeTeam_HyperLink" runat="server">修改施工单位</asp:HyperLink>
+	</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">
 	<form runat="server">

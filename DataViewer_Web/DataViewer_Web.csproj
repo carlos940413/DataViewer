@@ -71,9 +71,9 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="CompanyPage\CompanyDetailsPage.aspx" />
     <Content Include="CompanyPage\CompanyEditPage.aspx" />
-    <Content Include="ManagementPage\TeamDetailsPage.aspx" />
-    <Content Include="ManagementPage\TeamEditPage.aspx" />
-    <Content Include="ManagementPage\TeamPage.aspx" />
+    <Content Include="TeamPage\TeamDetailsPage.aspx" />
+    <Content Include="TeamPage\TeamEditPage.aspx" />
+    <Content Include="TeamPage\TeamPage.aspx" />
     <Content Include="ProjectDetailsPage.aspx" />
     <Content Include="ProjectPage.aspx" />
     <Content Include="Web.config" />
@@ -135,25 +135,25 @@
     <Compile Include="CompanyPage\CompanyEditPage.aspx.designer.cs">
       <DependentUpon>CompanyEditPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManagementPage\TeamDetailsPage.aspx.cs">
+    <Compile Include="TeamPage\TeamDetailsPage.aspx.cs">
       <DependentUpon>TeamDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManagementPage\TeamDetailsPage.aspx.designer.cs">
+    <Compile Include="TeamPage\TeamDetailsPage.aspx.designer.cs">
       <DependentUpon>TeamDetailsPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManagementPage\TeamEditPage.aspx.cs">
+    <Compile Include="TeamPage\TeamEditPage.aspx.cs">
       <DependentUpon>TeamEditPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManagementPage\TeamEditPage.aspx.designer.cs">
+    <Compile Include="TeamPage\TeamEditPage.aspx.designer.cs">
       <DependentUpon>TeamEditPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManagementPage\TeamPage.aspx.cs">
+    <Compile Include="TeamPage\TeamPage.aspx.cs">
       <DependentUpon>TeamPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManagementPage\TeamPage.aspx.designer.cs">
+    <Compile Include="TeamPage\TeamPage.aspx.designer.cs">
       <DependentUpon>TeamPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\Company_Master.master.cs">
@@ -177,12 +177,12 @@
     <Compile Include="MasterPage\Management_Master.Master.designer.cs">
       <DependentUpon>Management_Master.Master</DependentUpon>
     </Compile>
-    <Compile Include="MasterPage\Management_Team_Master.master.cs">
-      <DependentUpon>Management_Team_Master.master</DependentUpon>
+    <Compile Include="MasterPage\Team_Master.master.cs">
+      <DependentUpon>Team_Master.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage\Management_Team_Master.master.designer.cs">
-      <DependentUpon>Management_Team_Master.master</DependentUpon>
+    <Compile Include="MasterPage\Team_Master.master.designer.cs">
+      <DependentUpon>Team_Master.master</DependentUpon>
     </Compile>
     <Compile Include="ProjectDetailsPage.aspx.cs">
       <DependentUpon>ProjectDetailsPage.aspx</DependentUpon>
@@ -203,7 +203,7 @@
   <ItemGroup>
     <Content Include="MasterPage\Home_Master.Master" />
     <Content Include="MasterPage\Management_Master.Master" />
-    <Content Include="MasterPage\Management_Team_Master.master" />
+    <Content Include="MasterPage\Team_Master.master" />
     <Content Include="MasterPage\Company_Master.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -218,7 +218,9 @@
       <Name>DataViewer_Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ManagementPage\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
