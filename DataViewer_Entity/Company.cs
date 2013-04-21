@@ -79,5 +79,11 @@ namespace DataViewer_Entity
         {
             return toList(DBHelper.SelectCommand("Company_all", CommandType.StoredProcedure));
         }
+
+		public static List<Company> Get_ByFuzzyCompanyName(string companyName)
+		{
+			return toList(DBHelper.SelectCommand("Company_companynameFuzzy", CommandType.StoredProcedure,
+				new SqlParameter("@companyname", companyName)));
+		}
     }
 }

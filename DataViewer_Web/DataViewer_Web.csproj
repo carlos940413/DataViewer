@@ -68,6 +68,9 @@
     <Content Include="DataProcessingPage.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="ManagementPage\CompanyDetailsPage.aspx" />
+    <Content Include="ManagementPage\CompanyEditPage.aspx" />
+    <Content Include="ManagementPage\CompanyPage.aspx" />
     <Content Include="ProjectDetailsPage.aspx" />
     <Content Include="ProjectPage.aspx" />
     <Content Include="Web.config" />
@@ -108,12 +111,47 @@
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManagementPage\CompanyDetailsPage.aspx.cs">
+      <DependentUpon>CompanyDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\CompanyDetailsPage.aspx.designer.cs">
+      <DependentUpon>CompanyDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPage\CompanyEditPage.aspx.cs">
+      <DependentUpon>CompanyEditPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\CompanyEditPage.aspx.designer.cs">
+      <DependentUpon>CompanyEditPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPage\CompanyPage.aspx.cs">
+      <DependentUpon>CompanyPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagementPage\CompanyPage.aspx.designer.cs">
+      <DependentUpon>CompanyPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\Home_Master.Master.cs">
       <DependentUpon>Home_Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage\Home_Master.Master.designer.cs">
       <DependentUpon>Home_Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Management_Company_Master.master.cs">
+      <DependentUpon>Management_Company_Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Management_Company_Master.master.designer.cs">
+      <DependentUpon>Management_Company_Master.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Management_Master.Master.cs">
+      <DependentUpon>Management_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Management_Master.Master.designer.cs">
+      <DependentUpon>Management_Master.Master</DependentUpon>
     </Compile>
     <Compile Include="ProjectDetailsPage.aspx.cs">
       <DependentUpon>ProjectDetailsPage.aspx</DependentUpon>
@@ -133,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage\Home_Master.Master" />
+    <Content Include="MasterPage\Management_Master.Master" />
+    <Content Include="MasterPage\Management_Company_Master.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -146,9 +186,7 @@
       <Name>DataViewer_Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ManagementPage\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

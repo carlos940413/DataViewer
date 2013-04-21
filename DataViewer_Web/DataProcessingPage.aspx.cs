@@ -12,12 +12,6 @@ namespace DataViewer_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime acquireTime = DateTime.Now;
-            int total = Int32.Parse(Request.Params["total"].ToString());
-            for (int i = 1; i <= total; i++)
-            {
-                Concentration.SubmitConcentration(new Node() { ID = Int32.Parse(Request.Params.Keys[i].ToString()) }, acquireTime, Double.Parse(Request.Params[i].ToString()));
-            }
         }
     }
 }
