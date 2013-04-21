@@ -89,5 +89,10 @@ namespace DataViewer_Entity
 			return toList(DBHelper.SelectCommand("Area_projectid", CommandType.StoredProcedure,
 				new SqlParameter("@projectid", projectid)));
 		}
+
+		public static List<Area> Get_All()
+		{
+			return toList(DBHelper.SelectCommand("Area_all", CommandType.StoredProcedure));
+		}
 	}
 }
