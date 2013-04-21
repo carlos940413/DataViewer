@@ -10,7 +10,7 @@
 namespace DataViewer_Web.MasterPage {
     
     
-    public partial class Management_Company_Master {
+    public partial class Company_Master {
         
         /// <summary>
         /// head 控件。

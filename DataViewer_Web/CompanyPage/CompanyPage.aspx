@@ -1,14 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Management_Company_Master.Master" AutoEventWireup="true" CodeBehind="CompanyPage.aspx.cs" Inherits="DataViewer_Web.ManagementPage.CompanyPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Company_Master.master" AutoEventWireup="true" CodeBehind="CompanyPage.aspx.cs" Inherits="DataViewer_Web.CompanyPage.CompanyPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<style type="text/css">
-	 #<%=Search_Button.ClientID%>{
-		margin-top:0px;
+		#<%=Search_Button.ClientID %> {
+			margin-top: 0px;
 		}
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
-	<li><a href="/ManagementPage/CompanyEditPage.aspx">添加建设单位</a></li>
+	<li>
+		<asp:HyperLink ID="AddCompany_HyperLink" runat="server">添加建设单位</asp:HyperLink>
+	</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">
 	<form runat="server" class="form-search">
@@ -29,7 +31,7 @@
 							<ItemTemplate>
 								<div class="row-fluid ">
 									<div class="well">
-										<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/ManagementPage/CompanyDetailsPage.aspx?id="+Eval("ID")%>'><%# Eval("CompanyName") %></asp:HyperLink>
+										<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "/CompanyPage/CompanyDetailsPage.aspx?id="+Eval("ID")%>'><%# Eval("CompanyName") %></asp:HyperLink>
 									</div>
 								</div>
 							</ItemTemplate>

@@ -1,15 +1,15 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/Management_Master.Master" AutoEventWireup="true" CodeBehind="Management_Company_Master.master.cs" Inherits="DataViewer_Web.MasterPage.Management_Company_Master" %>
-
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/Home_Master.Master" AutoEventWireup="true" CodeBehind="Company_Master.master.cs" Inherits="DataViewer_Web.MasterPage.Company_Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="NavContent" runat="server">
 	<ul class="nav">
-		<li class="active"><a href="/ManagementPage/CompanyPage.aspx">建设单位</a></li>
-		<li><a href="/ManagementPage/TeamPage.aspx">施工单位</a></li>
+		<li><a href="/Index.aspx">首页</a></li>
 		<li><a>工程项目</a></li>
-		<li class="divider-vertical"></li>
-		<li class="divider-vertical"></li>
+		<li class="active"><a href="/CompanyPage/CompanyPage.aspx">建设单位</a></li>
+		<li><a>施工单位</a></li>
+		<li class='<%= Session["Administrator"]==null?"divider-verticle hidden":"divider-verticle" %>'></li>
+		<li class='<%= Session["Administrator"]==null?"divider-verticle hidden":"divider-verticle" %>'></li>
 		<asp:ContentPlaceHolder ID="Operation" runat="server"></asp:ContentPlaceHolder>
 	</ul>
 </asp:Content>

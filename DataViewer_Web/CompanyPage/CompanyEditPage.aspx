@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Management_Company_Master.Master" AutoEventWireup="true" CodeBehind="CompanyEditPage.aspx.cs" Inherits="DataViewer_Web.ManagementPage.CompanyEditPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Company_Master.Master" AutoEventWireup="true" CodeBehind="CompanyEditPage.aspx.cs" Inherits="DataViewer_Web.CompanyPage.CompanyEditPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<style type="text/css">
@@ -8,7 +8,7 @@
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
-	<li><a href='<%=company==null?"/ManagementPage/CompanyPage.aspx":"/ManagementPage/CompanyDetailsPage.aspx?id="+company.ID%>'>返回</a></li>
+	<li><a href='<%=company==null?"/CompanyPage/CompanyPage.aspx":"/CompanyPage/CompanyDetailsPage.aspx?id="+company.ID%>'>返回</a></li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">
 	<form runat="server">

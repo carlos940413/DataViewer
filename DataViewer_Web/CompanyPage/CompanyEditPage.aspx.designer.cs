@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DataViewer_Web.ManagementPage {
+namespace DataViewer_Web.CompanyPage {
     
     
     public partial class CompanyEditPage {

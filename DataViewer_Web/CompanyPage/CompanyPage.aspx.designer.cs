@@ -7,10 +7,19 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DataViewer_Web.ManagementPage {
+namespace DataViewer_Web.CompanyPage {
     
     
     public partial class CompanyPage {
+        
+        /// <summary>
+        /// AddCompany_HyperLink 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink AddCompany_HyperLink;
         
         /// <summary>
         /// CompanyName_TextBox 控件。

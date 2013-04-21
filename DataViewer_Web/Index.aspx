@@ -9,10 +9,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="NavContent" runat="server">
-    <ul class="nav">
-        <li class="active"><a href="Index.aspx">首页</a></li>
-        <li><a href="ProjectPage.aspx">工地</a></li>
-    </ul>
+	<ul class="nav">
+		<li class="active"><a href="/Index.aspx">首页</a></li>
+		<li><a>工程项目</a></li>
+		<li><a href="/CompanyPage/CompanyPage.aspx">建设单位</a></li>
+		<li><a>施工单位</a></li>
+	</ul>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ContentPart" runat="server">
     <form runat="server">
