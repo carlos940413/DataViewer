@@ -61,10 +61,8 @@ namespace DataGenerator
 			List<Company> companies = Company.Get_All();
 			for (int i = 0; i < count; i++)
 			{
-				Project p = new Project();
+				Project p = Project.CreateProject(teams[rand.Next(teams.Count)], companies[rand.Next(companies.Count)]);
 				p.ProjectName = RandomString(15);
-				p.Team = teams[rand.Next(teams.Count)];
-				p.Company = companies[rand.Next(companies.Count)];
 				p.StartOn = new DateTime(rand.Next(2000, 2013), rand.Next(1, 13), rand.Next(1, 29));
 				p.EndOn_Plan = p.StartOn.AddDays(rand.Next(100, 1000));
 				p.Location_East = (double)rand.Next(1183667, 1192333) / 10000;
@@ -74,17 +72,31 @@ namespace DataGenerator
 			}
 		}
 
-		public static void GenerateNode(int lowerCount, int upperCount)
+		public static void GenerateArea(int lowerCount, int upperCount)
 		{
 			List<Project> projects = Project.Get_All();
 			foreach (Project project in projects)
 			{
+				int areaCount = rand.Next(lowerCount, upperCount + 1);
+				for (int i = 0; i < areaCount; i++)
+				{
+					Area area = Area.CreateArea(project);
+					area.AreaName = RandomString(50);
+					area.Save();
+				}
+			}
+		}
+
+		public static void GenerateNode(int lowerCount, int upperCount)
+		{
+			List<Area> areas = Area.Get_All();
+			foreach (Area area in areas)
+			{
 				int actualCount = rand.Next(lowerCount, upperCount + 1);
 				for (int i = 0; i < actualCount; i++)
 				{
-					Node node = new Node();
+					Node node = Node.CreateNode(area);
 					node.HardwareID = i;
-					node.Project = project;
 					node.Description = RandomString(200);
 					node.Save();
 				}
@@ -112,9 +124,15 @@ namespace DataGenerator
 		static void Main(string[] args)
 		{
 			int choice = 0;
-			while (choice != 6)
+			while (choice != 7)
 			{
-				Console.WriteLine("1. 3 Companies\n2. 3 Teams\n3. 5 Projects\n4. 4 or 5 Nodes\n5. 50 Concentrations\n6. exit\n");
+				Console.WriteLine("1. 3 Companies");
+				Console.WriteLine("2. 3 Teams");
+				Console.WriteLine("3. 5 Projects");
+				Console.WriteLine("4. 1 to 3 Areas");
+				Console.WriteLine("5. 4 or 5 Nodes");
+				Console.WriteLine("6. 50 Concentrations");
+				Console.WriteLine("7. exit");
 				choice = Int32.Parse(Console.ReadLine());
 				switch (choice)
 				{
@@ -128,9 +146,12 @@ namespace DataGenerator
 						GenerateProject(5);
 						break;
 					case 4:
-						GenerateNode(4, 5);
+						GenerateArea(1, 3);
 						break;
 					case 5:
+						GenerateNode(4, 5);
+						break;
+					case 6:
 						GenerateConcentration(50);
 						break;
 					default:
