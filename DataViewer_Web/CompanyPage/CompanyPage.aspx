@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
 	<li>
-		<asp:HyperLink ID="AddCompany_HyperLink" runat="server">添加建设单位</asp:HyperLink>
+		<asp:HyperLink ID="AddCompany_HyperLink" runat="server" NavigateUrl="/CompanyPage/CompanyEditPage.aspx">添加建设单位</asp:HyperLink>
 	</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">

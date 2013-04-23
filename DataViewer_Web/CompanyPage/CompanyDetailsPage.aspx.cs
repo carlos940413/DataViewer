@@ -22,6 +22,10 @@ namespace DataViewer_Web.CompanyPage
 			}
 			if (company == null)
 				Response.Redirect("/CompanyPage/CompanyPage.aspx");
+			else
+			{
+				ChangeCompany_HyperLink.NavigateUrl = "/CompanyPage/CompanyEditPage.aspx?id=" + company.ID;
+			}
 		}
 	}
 }

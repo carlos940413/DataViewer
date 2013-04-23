@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
 	<li>
-		<asp:HyperLink ID="AddTeam_HyperLink" runat="server">添加施工单位</asp:HyperLink>
+		<asp:HyperLink ID="AddTeam_HyperLink" runat="server" NavigateUrl="/TeamPage/TeamEditPage.aspx">添加施工单位</asp:HyperLink>
 	</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">

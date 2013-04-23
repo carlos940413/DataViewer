@@ -22,6 +22,15 @@ namespace DataViewer_Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Help_Label 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Help_Label;
+        
+        /// <summary>
         /// Username_TextBox 控件。
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace DataViewer_Web {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Password_TextBox;
+        
+        /// <summary>
+        /// Login_Button 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Login_Button;
     }
 }

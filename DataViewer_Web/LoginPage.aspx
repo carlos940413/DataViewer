@@ -14,6 +14,9 @@
 			<div>
 				<h1>施 工 项 目 管 理 平 台</h1>
 			</div>
+			<div style="margin: 2px;">
+				<asp:Label ID="Help_Label" runat="server" Text="用户名或密码错误" Visible="false" CssClass="label label-warning"></asp:Label>
+			</div>
 			<div>
 				<div>
 					<asp:Label runat="server" Text="用户名" Width="50"></asp:Label>
@@ -25,7 +28,7 @@
 				</div>
 			</div>
 			<div>
-				<asp:Button runat="server" Text="登录" CssClass="btn" Width="100"/>
+				<asp:Button ID="Login_Button" runat="server" Text="登录" CssClass="btn" Width="100" OnClick="On_LoginButton_Click" />
 			</div>
 		</div>
 	</form>

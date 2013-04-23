@@ -12,7 +12,7 @@
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
-	<li><a href='<%= project==null?"/ProjectPage/ProjectPage.aspx":"/ProjectPage/ProjectDetailsPage.aspx"%>'>返回</a></li>
+	<li><a href='<%= project == null ? "/ProjectPage/ProjectPage.aspx" : "/ProjectPage/ProjectDetailsPage.aspx?id=" + project.ID%>'>返回</a></li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPart" runat="server">
 	<form runat="server">

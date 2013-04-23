@@ -22,6 +22,10 @@ namespace DataViewer_Web.TeamPage
 			}
 			if (team == null)
 				Response.Redirect("/TeamPage/TeamPage.aspx");
+			else
+			{
+				ChangeTeam_HyperLink.NavigateUrl = "/TeamPage/TeamEditPage.aspx?id=" + team.ID;
+			}
 		}
 	}
 }

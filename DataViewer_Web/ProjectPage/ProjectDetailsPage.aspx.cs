@@ -87,9 +87,13 @@ namespace DataViewer_Web.ProjectPage
 					Time_Label.Text = string.Format("{0:yyyy}年{0:MM}月{0:dd}日 - {1:yyyy}年{1:MM}月{1:dd}日", project.StartOn, project.EndOn_Plan);
 					#endregion
 
+					ChangeProject_HyperLink.NavigateUrl = "/ProjectPage/ProjectEditPage.aspx?id=" + project.ID;
+
+					// Initialize Area Tabs
 					List<Area> areas = Area.Get_ByProjectID(project.ID);
 					Session["Areas"] = areas;
 					Area_ListView.DataSource = areas;
+					// Initialize Concentration Content For Each Tab
 					List<AreaView> areaViews = new List<AreaView>();
 					if (areas.Count == 0)
 					{
