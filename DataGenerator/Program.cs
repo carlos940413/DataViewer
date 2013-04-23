@@ -81,7 +81,7 @@ namespace DataGenerator
 				for (int i = 0; i < areaCount; i++)
 				{
 					Area area = Area.CreateArea(project);
-					area.AreaName = RandomString(50);
+					area.AreaName = RandomString(10);
 					area.Save();
 				}
 			}
@@ -105,11 +105,11 @@ namespace DataGenerator
 
 		public static void GenerateConcentration(int countPerNode)
 		{
-			List<Project> projects = Project.Get_All();
-			foreach (Project project in projects)
+			List<Area> areas = Area.Get_All();
+			foreach (Area area in areas)
 			{
-				List<Node> nodes = Node.Get_ByAreaID(project.ID);
-				DateTime acquireTime = project.StartOn.AddHours(rand.Next(23)).AddMinutes(rand.Next(60)).AddSeconds(rand.Next(60));
+				List<Node> nodes = Node.Get_ByAreaID(area.ID);
+				DateTime acquireTime = area.Project.StartOn.AddHours(rand.Next(23)).AddMinutes(rand.Next(60)).AddSeconds(rand.Next(60));
 				for (int i = 0; i < countPerNode; i++)
 				{
 					acquireTime = acquireTime.AddMinutes(30);

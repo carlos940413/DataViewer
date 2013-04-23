@@ -85,11 +85,11 @@ namespace DataViewer_Entity
         /// </summary>
         /// <param name="projectid">项目id</param>
         /// <returns></returns>
-        public static Dictionary<DateTime, double> GetAverage_ByProjectID(int projectid)
+        public static Dictionary<DateTime, double> GetAverage_ByAreaID(int areaid)
         {
             Dictionary<DateTime, double> result = new Dictionary<DateTime, double>();
-            DataTable dt = DBHelper.SelectCommand("Concentration_Average_projectid", CommandType.StoredProcedure,
-                new SqlParameter("@projectid", projectid));
+            DataTable dt = DBHelper.SelectCommand("Concentration_Average_areaid", CommandType.StoredProcedure,
+                new SqlParameter("@areaid", areaid));
             foreach (DataRow row in dt.Rows)
             {
                 result.Add(DateTime.Parse(row["acquireon"].ToString()),Double.Parse(row["average_amount"].ToString()));
@@ -115,24 +115,24 @@ namespace DataViewer_Entity
         /// <param name="starttime">起始时间, MinValue表示不对起始时间做限制</param>
         /// <param name="endtime">结束时间, MinValue表示不对结束时间做限制</param>
         /// <returns></returns>
-        public static List<DateTime> GetAcquireOn_ByProjectIDANDStartTimeANDEndTime(int projectid, DateTime starttime, DateTime endtime)
+        public static List<DateTime> GetAcquireOn_ByAreaIDANDStartTimeANDEndTime(int areaid, DateTime starttime, DateTime endtime)
         {
             List<DateTime> result = new List<DateTime>();
             DataTable dt;
             if (starttime == DateTime.MinValue && endtime == DateTime.MinValue)
-                dt = DBHelper.SelectCommand("Concentration_acquireon_projectid", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid));
+                dt = DBHelper.SelectCommand("Concentration_acquireon_areaid", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid));
             else if (endtime == DateTime.MinValue)
-                dt = DBHelper.SelectCommand("Concentration_acquireon_projectidANDstarttime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                dt = DBHelper.SelectCommand("Concentration_acquireon_areaidANDstarttime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@starttime", starttime));
             else if (starttime == DateTime.MinValue)
-                dt = DBHelper.SelectCommand("Concentration_acquireon_projectidANDendtime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                dt = DBHelper.SelectCommand("Concentration_acquireon_areaidANDendtime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@endtime", endtime));
             else
-                dt = DBHelper.SelectCommand("Concentration_acquireon_projectidANDstarttimeANDendtime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                dt = DBHelper.SelectCommand("Concentration_acquireon_areaidANDstarttimeANDendtime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@starttime", starttime),
                     new SqlParameter("@endtime", endtime));
             foreach (DataRow row in dt.Rows)
@@ -145,26 +145,26 @@ namespace DataViewer_Entity
         /// <summary>
         /// 根据项目id和时间范围提取浓度信息
         /// </summary>
-        /// <param name="projectid">项目id</param>
+        /// <param name="areaid">项目id</param>
         /// <param name="starttime">起始时间, MinValue表示不做限制</param>
         /// <param name="endtime">结束时间, MinValue表示不做限制</param>
         /// <returns></returns>
-        public static List<Concentration> Get_ByProjectIDANDStartTimeANDEndTime(int projectid, DateTime starttime, DateTime endtime)
+        public static List<Concentration> Get_ByAreaIDANDStartTimeANDEndTime(int areaid, DateTime starttime, DateTime endtime)
         {
             if (starttime == DateTime.MinValue && endtime == DateTime.MinValue)
-                return toList(DBHelper.SelectCommand("Concentration_projectid", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid)));
+                return toList(DBHelper.SelectCommand("Concentration_areaid", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid)));
             else if (endtime == DateTime.MinValue)
-                return toList(DBHelper.SelectCommand("Concentration_projectidANDstarttime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                return toList(DBHelper.SelectCommand("Concentration_areaidANDstarttime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@starttime", starttime)));
             else if (starttime == DateTime.MinValue)
-                return toList(DBHelper.SelectCommand("Concentration_projectidANDendtime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                return toList(DBHelper.SelectCommand("Concentration_areaidANDendtime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@endtime", endtime)));
             else
-                return toList(DBHelper.SelectCommand("Concentration_projectidANDstarttimeANDendtime", CommandType.StoredProcedure,
-                    new SqlParameter("@projectid", projectid),
+                return toList(DBHelper.SelectCommand("Concentration_areaidANDstarttimeANDendtime", CommandType.StoredProcedure,
+                    new SqlParameter("@areaid", areaid),
                     new SqlParameter("@starttime", starttime),
                     new SqlParameter("@endtime", endtime)));
         }
