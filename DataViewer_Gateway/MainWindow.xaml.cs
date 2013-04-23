@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataViewer_Entity;
-using DataViewer_Gateway.PopupDialog;
+using DataViewer_ConfigureTool.PopupDialog;
 using System.IO.Ports;
 
 
-namespace DataViewer_Gateway
+namespace DataViewer_ConfigureTool
 {
 	/// <summary>
 	/// MainWindow.xaml 的交互逻辑

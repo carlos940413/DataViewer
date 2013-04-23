@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Entity", "DataVi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Web", "DataViewer_Web\DataViewer_Web.csproj", "{C114B76C-3F1C-41B0-BF42-2E72BCA7144E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Gateway", "DataViewer_Gateway\DataViewer_Gateway.csproj", "{761F66BA-AB33-4F56-8443-71C2A34468C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_ConfigureTool", "DataViewer_Gateway\DataViewer_ConfigureTool.csproj", "{761F66BA-AB33-4F56-8443-71C2A34468C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

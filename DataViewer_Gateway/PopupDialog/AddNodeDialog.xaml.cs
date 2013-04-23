@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataViewer_Entity;
 
-namespace DataViewer_Gateway.PopupDialog
+namespace DataViewer_ConfigureTool.PopupDialog
 {
     /// <summary>
     /// AddNodeDialog.xaml 的交互逻辑
