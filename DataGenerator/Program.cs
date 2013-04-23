@@ -121,10 +121,18 @@ namespace DataGenerator
 			}
 		}
 
+		public static void GenerateAdministrator()
+		{
+			Administrator admin = new Administrator();
+			admin.Username = Console.ReadLine();
+			admin.Password = Console.ReadLine();
+			admin.Save();
+		}
+
 		static void Main(string[] args)
 		{
 			int choice = 0;
-			while (choice != 7)
+			while (choice != 8)
 			{
 				Console.WriteLine("1. 3 Companies");
 				Console.WriteLine("2. 3 Teams");
@@ -132,7 +140,8 @@ namespace DataGenerator
 				Console.WriteLine("4. 1 to 3 Areas");
 				Console.WriteLine("5. 4 or 5 Nodes");
 				Console.WriteLine("6. 50 Concentrations");
-				Console.WriteLine("7. exit");
+				Console.WriteLine("7. Add Administrator");
+				Console.WriteLine("8. exit");
 				choice = Int32.Parse(Console.ReadLine());
 				switch (choice)
 				{
@@ -153,6 +162,9 @@ namespace DataGenerator
 						break;
 					case 6:
 						GenerateConcentration(50);
+						break;
+					case 7:
+						GenerateAdministrator();
 						break;
 					default:
 						break;
