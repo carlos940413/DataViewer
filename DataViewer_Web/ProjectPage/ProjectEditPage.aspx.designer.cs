@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DataViewer_Web {
+namespace DataViewer_Web.ProjectPage {
     
     
-    public partial class ProjectPage {
+    public partial class ProjectEditPage {
         
         /// <summary>
         /// ProjectName_TextBox 控件。
@@ -22,30 +22,21 @@ namespace DataViewer_Web {
         protected global::System.Web.UI.WebControls.TextBox ProjectName_TextBox;
         
         /// <summary>
-        /// Search_Button 控件。
+        /// Company_DropDownList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Search_Button;
+        protected global::System.Web.UI.WebControls.DropDownList Company_DropDownList;
         
         /// <summary>
-        /// Help_Label 控件。
+        /// Team_DropDownList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Help_Label;
-        
-        /// <summary>
-        /// Projects_ListView 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView Projects_ListView;
+        protected global::System.Web.UI.WebControls.DropDownList Team_DropDownList;
     }
 }

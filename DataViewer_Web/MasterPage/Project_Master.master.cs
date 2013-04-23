@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DataViewer_Web.MasterPage
 {
-	public partial class Management_Master : System.Web.UI.MasterPage
+	public partial class Project_Master : System.Web.UI.MasterPage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

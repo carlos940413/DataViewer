@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataViewer_Entity;
 
-namespace DataViewer_Web
+namespace DataViewer_Web.ProjectPage
 {
     public partial class ProjectPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			if (Session["Administrator"] == null)
+				CreateProject_HyperLink.Visible = false;
         }
 
         protected void On_SearchButton_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace DataViewer_Web.AjaxPage
                 Company_Label.Text = project.Company.CompanyName;
                 Team_Label.Text = project.Team.TeamName;
                 Period_Label.Text = string.Format("{0} - {1}", project.StartOn.ToShortDateString(), project.EndOn_Plan.ToShortDateString());
-                Details_HyperLink.NavigateUrl = "ProjectDetailsPage.aspx?id=" + projectID;
+                Details_HyperLink.NavigateUrl = "/ProjectPage/ProjectDetailsPage.aspx?id=" + projectID;
             }
         }
     }

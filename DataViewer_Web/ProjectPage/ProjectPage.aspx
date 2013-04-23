@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Home_Master.Master" AutoEventWireup="true" CodeBehind="ProjectPage.aspx.cs" Inherits="DataViewer_Web.ProjectPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Project_Master.Master" AutoEventWireup="true" CodeBehind="ProjectPage.aspx.cs" Inherits="DataViewer_Web.ProjectPage.ProjectPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -7,11 +7,10 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="NavContent" runat="server">
-    <ul class="nav">
-        <li><a href="/Index.aspx">首页</a></li>
-        <li class="active"><a href="ProjectPage.aspx">工地</a></li>
-    </ul>
+<asp:Content ID="Content2" ContentPlaceHolderID="Operation" runat="server">
+	<li>
+		<asp:HyperLink ID="CreateProject_HyperLink" runat="server">添加工程项目</asp:HyperLink>
+	</li>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="ContentPart" runat="server">
     <form runat="server" class="form-search">
@@ -30,7 +29,7 @@
                     <ItemTemplate>
                         <div class="row-fluid">
                             <div class="row-fluid">
-                                <asp:HyperLink ID="ProjectName_LinkButton" NavigateUrl='<%# "ProjectDetailsPage.aspx?id="+Eval("ID") %>' runat="server" Text='<%# Eval("ProjectName") %>' CssClass="span12"></asp:HyperLink>
+                                <asp:HyperLink ID="ProjectName_LinkButton" NavigateUrl='<%# "/ProjectPage/ProjectDetailsPage.aspx?id="+Eval("ID") %>' runat="server" Text='<%# Eval("ProjectName") %>' CssClass="span12"></asp:HyperLink>
                             </div>
                             <div class="row-fluid">
                                 <div class="span6">

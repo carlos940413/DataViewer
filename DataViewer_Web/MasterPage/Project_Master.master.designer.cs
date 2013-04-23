@@ -10,7 +10,7 @@
 namespace DataViewer_Web.MasterPage {
     
     
-    public partial class Management_Master {
+    public partial class Project_Master {
         
         /// <summary>
         /// head 控件。
@@ -22,13 +22,13 @@ namespace DataViewer_Web.MasterPage {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// NavContent 控件。
+        /// Operation 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Operation;
         
         /// <summary>
         /// ContentPart 控件。
