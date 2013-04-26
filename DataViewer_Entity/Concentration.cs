@@ -27,6 +27,17 @@ namespace DataViewer_Entity
             result.Save();
         }
 
+		public static void SubmitConcentration(int nodeID, DateTime acquireOn, double concentration)
+		{
+			if (nodeID == 0 || acquireOn == DateTime.MinValue)
+				return;
+			Concentration result = new Concentration();
+			DBHelper.UpdateDeleteCommand("Concentration_Insert", CommandType.StoredProcedure,
+				new SqlParameter("@nodeid", nodeID),
+				new SqlParameter("@acquireon", acquireOn),
+				new SqlParameter("@amount", concentration));
+		}
+
         private Concentration() { }
 
         #region Properties

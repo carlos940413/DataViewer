@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Web", "DataViewe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_ConfigureTool", "DataViewer_Gateway\DataViewer_ConfigureTool.csproj", "{761F66BA-AB33-4F56-8443-71C2A34468C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewer_Server", "DataViewer_Server\DataViewer_Server.csproj", "{CE0C39D8-DAE7-40D1-9EC3-F8681DD8B4FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{761F66BA-AB33-4F56-8443-71C2A34468C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{761F66BA-AB33-4F56-8443-71C2A34468C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{761F66BA-AB33-4F56-8443-71C2A34468C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0C39D8-DAE7-40D1-9EC3-F8681DD8B4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0C39D8-DAE7-40D1-9EC3-F8681DD8B4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0C39D8-DAE7-40D1-9EC3-F8681DD8B4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0C39D8-DAE7-40D1-9EC3-F8681DD8B4FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
