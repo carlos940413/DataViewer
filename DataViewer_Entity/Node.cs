@@ -15,7 +15,7 @@ namespace DataViewer_Entity
 	{
 		private Node()
 		{
-			ID = 0;
+			_ID = 0;
 			HardwareID = 0;
 			Description = "";
 		}
@@ -32,7 +32,6 @@ namespace DataViewer_Entity
 		public int ID
 		{
 			get { return _ID; }
-			set { _ID = value; }
 		}
 
 		/// <summary>
@@ -69,7 +68,7 @@ namespace DataViewer_Entity
 		public void Save()
 		{
 			if (ID == 0)
-				ID = DBHelper.InsertCommand("Node_Insert", CommandType.StoredProcedure,
+				_ID = DBHelper.InsertCommand("Node_Insert", CommandType.StoredProcedure,
 					new SqlParameter("@hardwareid", HardwareID),
 					new SqlParameter("@areaid", Area.ID),
 					new SqlParameter("@description", Description));
@@ -85,7 +84,7 @@ namespace DataViewer_Entity
 		{
 			DBHelper.UpdateDeleteCommand("Node_Delete", CommandType.StoredProcedure,
 				new SqlParameter("@id", ID));
-			ID = 0;
+			_ID = 0;
 		}
 
 		private static List<Node> toList(DataTable dt)
@@ -94,7 +93,7 @@ namespace DataViewer_Entity
 			foreach (DataRow row in dt.Rows)
 			{
 				Node node = new Node();
-				node.ID = Int32.Parse(row["id"].ToString());
+				node._ID = Int32.Parse(row["id"].ToString());
 				node.HardwareID = Int32.Parse(row["hardwareid"].ToString());
 				node.Area = Area.Get_ByID(Int32.Parse(row["areaid"].ToString()));
 				node.Description = row["description"].ToString();

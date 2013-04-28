@@ -99,7 +99,7 @@ namespace DataViewer_Entity
         public static Dictionary<DateTime, double> GetAverage_ByAreaID(int areaid)
         {
             Dictionary<DateTime, double> result = new Dictionary<DateTime, double>();
-            DataTable dt = DBHelper.SelectCommand("Concentration_Average_areaid", CommandType.StoredProcedure,
+            DataTable dt = DBHelper.SelectCommand("Concentration_amountAverage_areaid", CommandType.StoredProcedure,
                 new SqlParameter("@areaid", areaid));
             foreach (DataRow row in dt.Rows)
             {

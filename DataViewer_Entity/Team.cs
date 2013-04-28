@@ -10,17 +10,25 @@ namespace DataViewer_Entity
 {
     public class Team : IEntity
     {
-        public Team()
+        private Team()
         {
-            ID = 0;
+            _ID = 0;
             TeamName = "";
+			LegalRepresentative = "";
+			Address = "";
         }
+
+		public static Team CreateTeam(TeamLevel teamLevel, TeamType teamType)
+		{
+			if (teamLevel != null && teamType != null && teamLevel.ID != 0 && teamType.ID != 0)
+				return new Team() { TeamType = teamType, TeamLevel = teamLevel };
+			return null;
+		}
 
         private int _ID;
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
         }
 
         /// <summary>
@@ -33,10 +41,38 @@ namespace DataViewer_Entity
             set { _TeamName = value; }
         }
 
+		private string _LegalRepresentative;
+		public string LegalRepresentative
+		{
+			get { return _LegalRepresentative; }
+			set { _LegalRepresentative = value; }
+		}
+
+		private string _Address;
+		public string Address
+		{
+			get { return _Address; }
+			set { _Address = value; }
+		}
+
+		private TeamLevel _TeamLevel;
+		public TeamLevel TeamLevel
+		{
+			get { return _TeamLevel; }
+			set { _TeamLevel = value; }
+		}
+
+		private TeamType _TeamType;
+		public TeamType TeamType
+		{
+			get { return _TeamType; }
+			set { _TeamType = value; }
+		}
+
         public void Save()
         {
             if (ID == 0)
-                ID = DBHelper.InsertCommand("Team_Insert", CommandType.StoredProcedure,
+                _ID = DBHelper.InsertCommand("Team_Insert", CommandType.StoredProcedure,
                     new SqlParameter("@teamname", TeamName));
             else
                 DBHelper.UpdateDeleteCommand("Team_Update", CommandType.StoredProcedure,
@@ -44,14 +80,27 @@ namespace DataViewer_Entity
                     new SqlParameter("@teamname", TeamName));
         }
 
+		public override bool Equals(object obj)
+		{
+			Team team = obj as Team;
+			if (team == null || team.ID != this.ID)
+				return false;
+			else
+				return true;
+		}
+
         private static List<Team> toList(DataTable dt)
         {
             List<Team> result = new List<Team>();
             foreach (DataRow row in dt.Rows)
             {
                 Team team = new Team();
-                team.ID = Int32.Parse(row["id"].ToString());
+                team._ID = Int32.Parse(row["id"].ToString());
                 team.TeamName = row["teamname"].ToString();
+				team.LegalRepresentative = row["legalrepresentative"].ToString();
+				team.Address = row["address"].ToString();
+				team.TeamLevel = TeamLevel.Get_ByID(Int32.Parse(row["teamlevelid"].ToString()));
+				team.TeamType = TeamType.Get_ByID(Int32.Parse(row["teamtypeid"].ToString()));
                 result.Add(team);
             }
             return result;
