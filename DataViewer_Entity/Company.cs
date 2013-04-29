@@ -52,11 +52,15 @@ namespace DataViewer_Entity
 		{
 			if (ID == 0)
 				_ID = DBHelper.InsertCommand("Company_Insert", CommandType.StoredProcedure,
-					new SqlParameter("@companyname", CompanyName));
+					new SqlParameter("@companyname", CompanyName),
+					new SqlParameter("@legalrepresentative", LegalRepresentative),
+					new SqlParameter("@address", Address));
 			else
 				DBHelper.UpdateDeleteCommand("Company_Update", CommandType.StoredProcedure,
 					new SqlParameter("@id", ID),
-					new SqlParameter("@companyname", CompanyName));
+					new SqlParameter("@companyname", CompanyName),
+					new SqlParameter("@legalrepresentative", LegalRepresentative),
+					new SqlParameter("@address", Address));
 		}
 
 		private static List<Company> toList(DataTable dt)

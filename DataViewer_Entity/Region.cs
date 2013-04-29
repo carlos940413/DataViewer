@@ -66,5 +66,10 @@ namespace DataViewer_Entity
 				return null;
 			return regions[0];
 		}
+
+		public static List<Region> Get_All()
+		{
+			return toList(DBHelper.SelectCommand("Region_all", CommandType.StoredProcedure));
+		}
 	}
 }

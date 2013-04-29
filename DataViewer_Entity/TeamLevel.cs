@@ -66,5 +66,10 @@ namespace DataViewer_Entity
 				return null;
 			return teamLevels[0];
 		}
+
+		public static List<TeamLevel> Get_All()
+		{
+			return toList(DBHelper.SelectCommand("TeamLevel_all", CommandType.StoredProcedure));
+		}
 	}
 }

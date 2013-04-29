@@ -182,6 +182,9 @@ namespace DataViewer_Entity
 				_ID = DBHelper.InsertCommand("Project_Insert", CommandType.StoredProcedure,
 					new SqlParameter("@projectname", ProjectName),
 					new SqlParameter("@companyid", Company.ID),
+					new SqlParameter("@regionid", Region.ID),
+					new SqlParameter("@dutyofficer_name", DutyOfficer.PersonName),
+					new SqlParameter("@dutyofficer_phonenumber", DutyOfficer.PhoneNumber),
 					new SqlParameter("@starton", StartOn.Date),
 					new SqlParameter("@endon_plan", EndOn_Plan.Date),
 					new SqlParameter("@endon_fact", endOn_Fact),
@@ -195,6 +198,9 @@ namespace DataViewer_Entity
 					new SqlParameter("@id", ID),
 					new SqlParameter("@projectname", ProjectName),
 					new SqlParameter("@companyid", Company.ID),
+					new SqlParameter("@regionid", Region.ID),
+					new SqlParameter("@dutyofficer_name", DutyOfficer.PersonName),
+					new SqlParameter("@dutyofficer_phonenumber", DutyOfficer.PhoneNumber),
 					new SqlParameter("@starton", StartOn.Date),
 					new SqlParameter("@endon_plan", EndOn_Plan.Date),
 					new SqlParameter("@endon_fact", endOn_Fact),
@@ -256,7 +262,7 @@ namespace DataViewer_Entity
 					new SqlParameter("@projectid", project.ID));
 				project.SupervisionDepartments = new List<SupervisionDepartment>();
 				foreach (DataRow row_supervisionDepartment in dt_supervisionDepartments.Rows)
-					project.SupervisionDepartments.Add(SupervisionDepartment.Get_ByID(Int32.Parse(row["supervisiondepartmentid"].ToString())));
+					project.SupervisionDepartments.Add(SupervisionDepartment.Get_ByID(Int32.Parse(row_supervisionDepartment["supervisiondepartmentid"].ToString())));
 
 				result.Add(project);
 			}

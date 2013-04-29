@@ -41,7 +41,7 @@ namespace DataViewer_Entity
 		{
 			if (ID == 0)
 				_ID = DBHelper.InsertCommand("SupervisionDepartment_Insert", CommandType.StoredProcedure,
-					new SqlParameter("@departnemtname", DepartmentName),
+					new SqlParameter("@departmentname", DepartmentName),
 					new SqlParameter("@phonenumber", PhoneNumber));
 			else
 				DBHelper.UpdateDeleteCommand("SupervisionDepartment_Update", CommandType.StoredProcedure,
@@ -71,6 +71,11 @@ namespace DataViewer_Entity
 			if (supervisionDepartments.Count == 0)
 				return null;
 			return supervisionDepartments[0];
+		}
+
+		public static List<SupervisionDepartment> Get_All()
+		{
+			return toList(DBHelper.SelectCommand("SupervisionDepartment_all", CommandType.StoredProcedure));
 		}
 	}
 }
