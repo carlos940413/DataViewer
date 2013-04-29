@@ -62,6 +62,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PopupDialog\AddAreaDialog.xaml.cs">
+      <DependentUpon>AddAreaDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PopupDialog\AddNodeDialog.xaml.cs">
       <DependentUpon>AddNodeDialog.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupDialog\AddAreaDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

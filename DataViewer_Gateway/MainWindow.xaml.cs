@@ -31,14 +31,15 @@ namespace DataViewer_ConfigureTool
 			Project_ComboBox.ItemsSource = Project.Get_ByState(false);
 			Port_ComboBox.ItemsSource = SerialPort.GetPortNames();
 			Port_ComboBox.SelectedIndex = 0;
+			Project_ComboBox.SelectedIndex = 0;
 			#endregion
 		}
 
-		private void On_PojectComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void On_AreaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (Project_ComboBox.SelectedIndex >= 0)
+			if (Area_ComboBox.SelectedIndex >= 0)
 			{
-				Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
+				Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Area_ComboBox.SelectedItem as Area).ID);
 				AddNode_Button.IsEnabled = true;
 				Register_Button.IsEnabled = true;
 				DeleteNode_Button.IsEnabled = true;
@@ -54,7 +55,7 @@ namespace DataViewer_ConfigureTool
 
 		private void On_AddNodeButton_Click(object sender, RoutedEventArgs e)
 		{
-			AddNodeDialog dialog = new AddNodeDialog((Project_ComboBox.SelectedItem as Project).ID);
+			AddNodeDialog dialog = new AddNodeDialog(Area_ComboBox.SelectedItem as Area);
 			dialog.Owner = this;
 			dialog.ShowDialog();
 			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
@@ -95,6 +96,29 @@ namespace DataViewer_ConfigureTool
 			{
 				port.Close();
 			}
+		}
+
+		private void On_PojectComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (Project_ComboBox.SelectedIndex >= 0)
+			{
+				Area_ComboBox.ItemsSource = Area.Get_ByProjectID((Project_ComboBox.SelectedItem as Project).ID);
+				Area_ComboBox.SelectedIndex = 0;
+			}
+			else
+			{
+				Area_ComboBox.ItemsSource = null;
+				Area_ComboBox.SelectedIndex = -1;
+			}
+		}
+
+		private void On_NewAreaButton_Click(object sender, RoutedEventArgs e)
+		{
+			AddAreaDialog dialog = new AddAreaDialog(Project_ComboBox.SelectedItem as Project);
+			dialog.Owner = this;
+			dialog.ShowDialog();
+			Area_ComboBox.ItemsSource = Area.Get_ByProjectID((Project_ComboBox.SelectedItem as Project).ID);
+			Area_ComboBox.SelectedIndex = 0;
 		}
 	}
 }
