@@ -15,7 +15,7 @@ namespace DataViewer_Server
 
 		static void Main(string[] args)
 		{
-			IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), PORT);
+			IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("42.121.120.41"), PORT);
 			TcpListener listener = new TcpListener(ipEndPoint);
 			listener.Start();
 			while (true)
@@ -32,32 +32,30 @@ namespace DataViewer_Server
 			NetworkStream stream = (client as TcpClient).GetStream();
 			while (connected)
 			{
+				List<byte> data_all = new List<byte>();
 				while (stream.DataAvailable)
 				{
-					DateTime acquireOn = DateTime.Now;
-					int count = stream.ReadByte();
-					if (count == 0)
+					byte[] data = new byte[1024];
+					stream.Read(data, 0, data.Length);
+					foreach (byte item in data)
 					{
+						if (item != 0)
+							data_all.Add(item);
+						else
+							break;
+					}
+				}
+				if (data_all.Count != 0)
+				{
+					byte[] data = data_all.ToArray();
+					string data_string = new string(Encoding.UTF8.GetChars(data));
+					//foreach (byte item in data)
+					//{
+					//	data_string += item.ToString();
+					//}
+					Console.WriteLine(data_string);
+					if (data_string == "disconnect")
 						connected = false;
-					}
-					else
-					{
-						byte[] data = new byte[count * 6];
-						stream.Read(data, 0, data.Length);
-						Dictionary<int, short> concentrations = new Dictionary<int, short>();
-						for (int i = 0; i < data.Length; i += 6)
-						{
-							int nodeID = BitConverter.ToInt32(data.ToList<byte>().GetRange(i, 4).Reverse<byte>().ToArray<byte>(), 0);
-							short amount = BitConverter.ToInt16(data.ToList<byte>().GetRange(i + 4, 2).Reverse<byte>().ToArray<byte>(), 0);
-							concentrations.Add(nodeID, amount);
-						}
-						Console.Write(acquireOn.ToString() + " => ");
-						foreach (var key in concentrations.Keys)
-						{
-							Console.Write(key.ToString() + " : " + concentrations[key].ToString() + ", ");
-						}
-						Console.WriteLine();
-					}
 				}
 			}
 			(client as TcpClient).Close();
