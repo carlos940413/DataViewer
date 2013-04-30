@@ -32,7 +32,7 @@ namespace DataGenerator
 			{
 				builder.Append(numbers[rand.Next(10)]);
 			}
-			return numbers.ToString();
+			return new string(numbers.ToArray());
 		}
 
 		public static void GenerateTeamLevel(int count)
@@ -105,21 +105,19 @@ namespace DataGenerator
 		{
 			List<Company> companies = Company.Get_All();
 			List<Region> regions = Region.Get_All();
-
-			List<Team> teams = Team.Get_All();
-			int teamCount = rand.Next(2, 4);
-			Dictionary<Team, DutyOfficer> teamInformation = new Dictionary<Team, DutyOfficer>();
-			for (int i = 0; i < teamCount; i++)
-			{
-				int index = rand.Next(teams.Count);
-				teamInformation.Add(teams[index], new DutyOfficer() { PersonName = RandomString(10), PhoneNumber = RandomPhone() });
-				teams.RemoveAt(index);
-			}
-
 			List<SupervisionDepartment> supervisionDepartments = SupervisionDepartment.Get_All();
-			int supervisionDepartmentStartIndex = rand.Next(supervisionDepartments.Count);
-			for (int i = 0; i < count; i++)
+			while (count-- > 0)
 			{
+				List<Team> teams = Team.Get_All();
+				int teamCount = rand.Next(2, 4);
+				Dictionary<Team, DutyOfficer> teamInformation = new Dictionary<Team, DutyOfficer>();
+				while (teamCount-- > 0)
+				{
+					int index = rand.Next(teams.Count);
+					teamInformation.Add(teams[index], new DutyOfficer() { PersonName = RandomString(10), PhoneNumber = RandomPhone() });
+					teams.RemoveAt(index);
+				}
+				int supervisionDepartmentStartIndex = rand.Next(supervisionDepartments.Count);
 				Project p = Project.CreateProject(
 					companies[rand.Next(companies.Count)],
 					regions[rand.Next(regions.Count)],
