@@ -32,7 +32,7 @@ namespace DataGenerator
 			{
 				builder.Append(numbers[rand.Next(10)]);
 			}
-			return new string(numbers.ToArray());
+			return builder.ToString();
 		}
 
 		public static void GenerateTeamLevel(int count)

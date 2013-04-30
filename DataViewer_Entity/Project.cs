@@ -254,8 +254,8 @@ namespace DataViewer_Entity
 						Team.Get_ByID(Int32.Parse(row_teamInformation["teamid"].ToString())),
 						new DutyOfficer()
 						{
-							PersonName = row["dutyofficer_name"].ToString(),
-							PhoneNumber = row["dutyofficer_phonenumber"].ToString()
+							PersonName = row_teamInformation["dutyofficer_name"].ToString(),
+							PhoneNumber = row_teamInformation["dutyofficer_phonenumber"].ToString()
 						});
 
 				DataTable dt_supervisionDepartments = DBHelper.SelectCommand("Project-SupervisionDepartment_projectid", CommandType.StoredProcedure,
