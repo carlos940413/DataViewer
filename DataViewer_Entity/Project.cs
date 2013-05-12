@@ -209,7 +209,7 @@ namespace DataViewer_Entity
 					new SqlParameter("@node_phone", Node_Phone));
 				DBHelper.UpdateDeleteCommand("Project-Team_Delete_projectid", CommandType.StoredProcedure,
 					new SqlParameter("@projectid", ID));
-				DBHelper.UpdateDeleteCommand("Project-Team_Delete_projectid", CommandType.StoredProcedure,
+				DBHelper.UpdateDeleteCommand("Project-SupervisionDepartment_Delete_projectid", CommandType.StoredProcedure,
 					new SqlParameter("@projectid", ID));
 			}
 			foreach (Team team in TeamInformation.Keys)
