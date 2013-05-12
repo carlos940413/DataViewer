@@ -15,10 +15,6 @@
                 <asp:Label ID="Company_Label" runat="server" Text="Label"></asp:Label>
             </p>
             <p>
-                施工单位:
-                <asp:Label ID="Team_Label" runat="server" Text="Label"></asp:Label>
-            </p>
-            <p>
                 工期:
                 <asp:Label ID="Period_Label" runat="server" Text="Label"></asp:Label>
             </p>
