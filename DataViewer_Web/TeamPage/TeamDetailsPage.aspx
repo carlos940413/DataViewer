@@ -18,6 +18,26 @@
 								施工单位名称:　<%=team.TeamName%>
 							</div>
 						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								法定代表人:　<%=team.LegalRepresentative%>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								单位地址:　<%=team.Address%>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								资质等级:　<%=team.TeamLevel%>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								分包类型:　<%=team.TeamType%>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
