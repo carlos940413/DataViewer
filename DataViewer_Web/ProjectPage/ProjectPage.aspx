@@ -36,10 +36,6 @@
                                     所属企业:
                                     <asp:Label ID="Label1" runat="server" Text='<%#Eval("Company.CompanyName") %>'></asp:Label>
                                 </div>
-                                <div class="span6">
-                                    施工单位:
-                                    <asp:Label ID="Label2" runat="server" Text='<%#Eval("Team.TeamName") %>'></asp:Label>
-                                </div>
                             </div>
                             <hr width="100%" />
                         </div>

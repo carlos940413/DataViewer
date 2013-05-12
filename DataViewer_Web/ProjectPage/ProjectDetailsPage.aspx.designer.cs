@@ -22,6 +22,24 @@ namespace DataViewer_Web.ProjectPage {
         protected global::System.Web.UI.WebControls.HyperLink ChangeProject_HyperLink;
         
         /// <summary>
+        /// form1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// ScriptManager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// ProjectName_Label 控件。
         /// </summary>
         /// <remarks>
@@ -31,22 +49,49 @@ namespace DataViewer_Web.ProjectPage {
         protected global::System.Web.UI.WebControls.Label ProjectName_Label;
         
         /// <summary>
-        /// CompanyName_Label 控件。
+        /// DutyOfficerName_Label 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompanyName_Label;
+        protected global::System.Web.UI.WebControls.Label DutyOfficerName_Label;
         
         /// <summary>
-        /// TeamName_Label 控件。
+        /// DutyOfficerPhoneNumber_Label 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TeamName_Label;
+        protected global::System.Web.UI.WebControls.Label DutyOfficerPhoneNumber_Label;
+        
+        /// <summary>
+        /// CompanyName_HyperLink 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink CompanyName_HyperLink;
+        
+        /// <summary>
+        /// Label1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Region_Label 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Region_Label;
         
         /// <summary>
         /// Time_Label 控件。
@@ -58,6 +103,24 @@ namespace DataViewer_Web.ProjectPage {
         protected global::System.Web.UI.WebControls.Label Time_Label;
         
         /// <summary>
+        /// TeamInformation_ListView 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView TeamInformation_ListView;
+        
+        /// <summary>
+        /// SupervisionDepartment_ListView 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SupervisionDepartment_ListView;
+        
+        /// <summary>
         /// Help_Label 控件。
         /// </summary>
         /// <remarks>
@@ -65,6 +128,15 @@ namespace DataViewer_Web.ProjectPage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Help_Label;
+        
+        /// <summary>
+        /// UpdatePanel1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// Area_ListView 控件。
