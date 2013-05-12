@@ -13,6 +13,15 @@ namespace DataViewer_Web.CompanyPage {
     public partial class CompanyEditPage {
         
         /// <summary>
+        /// Back_HyperLink 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Back_HyperLink;
+        
+        /// <summary>
         /// CompanyName_TextBox 控件。
         /// </summary>
         /// <remarks>
@@ -20,5 +29,32 @@ namespace DataViewer_Web.CompanyPage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CompanyName_TextBox;
+        
+        /// <summary>
+        /// LegalRepresentative_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LegalRepresentative_TextBox;
+        
+        /// <summary>
+        /// Address_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Address_TextBox;
+        
+        /// <summary>
+        /// Submit_Button 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Submit_Button;
     }
 }

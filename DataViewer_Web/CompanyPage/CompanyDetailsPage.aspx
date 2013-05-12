@@ -15,7 +15,17 @@
 					<div class="well">
 						<div class="row-fluid">
 							<div class="span12">
-								建设单位名称:　<%=company.CompanyName %>
+								单位名称:　<%=company.CompanyName %>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								法人代表:　<%=company.LegalRepresentative%>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								单位地址:　<%=company.Address%>
 							</div>
 						</div>
 					</div>
