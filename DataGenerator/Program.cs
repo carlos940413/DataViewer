@@ -76,6 +76,8 @@ namespace DataGenerator
 			{
 				Company c = new Company();
 				c.CompanyName = RandomString(20);
+				c.LegalRepresentative = RandomString(10);
+				c.Address = RandomString(200);
 				c.Save();
 			}
 		}
