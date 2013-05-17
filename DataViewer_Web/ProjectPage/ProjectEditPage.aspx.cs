@@ -33,6 +33,19 @@ namespace DataViewer_Web.ProjectPage
 					Back_HyperLink.NavigateUrl = string.Format("/ProjectPage/ProjectDetailsPage.aspx?id={0}", project.ID);
 
 					ProjectName_TextBox.Text = project.ProjectName;
+
+					EastDegree_TextBox.Text = Math.Truncate(project.Location_East).ToString();
+					double remain = project.Location_East - Math.Truncate(project.Location_East);
+					EastMinute_TextBox.Text = Math.Truncate(remain * 60).ToString();
+					remain = remain * 60 - Math.Truncate(remain * 60);
+					EastSecond_TextBox.Text = Math.Truncate(remain * 60).ToString();
+
+					NorthDegree_TextBox.Text = Math.Truncate(project.Location_North).ToString();
+					remain = project.Location_North - Math.Truncate(project.Location_North);
+					NorthMinute_TextBox.Text = Math.Truncate(remain * 60).ToString();
+					remain = remain * 60 - Math.Truncate(remain * 60);
+					NorthSecond_TextBox.Text = Math.Truncate(remain * 60).ToString();
+
 					Region_DropDownList.SelectedValue = project.Region.ID.ToString();
 					Company_DropDownList.SelectedValue = project.Company.ID.ToString();
 					DutyOfficerName_TextBox.Text = project.DutyOfficer.PersonName;
@@ -143,6 +156,8 @@ namespace DataViewer_Web.ProjectPage
 				{
 					project.ProjectName = ProjectName_TextBox.Text;
 					project.DutyOfficer = new DutyOfficer() { PersonName = DutyOfficerName_TextBox.Text, PhoneNumber = DutyOfficerPhoneNumber_TextBox.Text };
+					project.Location_East = Double.Parse(EastDegree_TextBox.Text) + Double.Parse(EastMinute_TextBox.Text) / 60 + Double.Parse(EastSecond_TextBox.Text) / 3600;
+					project.Location_North = Double.Parse(NorthDegree_TextBox.Text) + Double.Parse(NorthMinute_TextBox.Text) / 60 + Double.Parse(NorthSecond_TextBox.Text) / 3600;
 					project.Save();
 					Response.Redirect("/ProjectPage/ProjectDetailsPage.aspx?id=" + project.ID);
 				}
@@ -151,6 +166,8 @@ namespace DataViewer_Web.ProjectPage
 			{
 				Project project = Session["Project"] as Project;
 				project.ProjectName = ProjectName_TextBox.Text;
+				project.Location_East = Double.Parse(EastDegree_TextBox.Text) + Double.Parse(EastMinute_TextBox.Text) / 60 + Double.Parse(EastSecond_TextBox.Text) / 3600;
+				project.Location_North = Double.Parse(NorthDegree_TextBox.Text) + Double.Parse(NorthMinute_TextBox.Text) / 60 + Double.Parse(NorthSecond_TextBox.Text) / 3600;
 				project.Region = Region.Get_ByID(Int32.Parse(Region_DropDownList.SelectedValue));
 				project.Company = Company.Get_ByID(Int32.Parse(Company_DropDownList.SelectedValue));
 				project.DutyOfficer = new DutyOfficer() { PersonName = DutyOfficerName_TextBox.Text, PhoneNumber = DutyOfficerPhoneNumber_TextBox.Text };

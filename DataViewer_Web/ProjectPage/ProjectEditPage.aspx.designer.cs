@@ -49,6 +49,60 @@ namespace DataViewer_Web.ProjectPage {
         protected global::System.Web.UI.WebControls.TextBox ProjectName_TextBox;
         
         /// <summary>
+        /// EastDegree_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EastDegree_TextBox;
+        
+        /// <summary>
+        /// EastMinute_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EastMinute_TextBox;
+        
+        /// <summary>
+        /// EastSecond_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EastSecond_TextBox;
+        
+        /// <summary>
+        /// NorthDegree_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NorthDegree_TextBox;
+        
+        /// <summary>
+        /// NorthMinute_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NorthMinute_TextBox;
+        
+        /// <summary>
+        /// NorthSecond_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NorthSecond_TextBox;
+        
+        /// <summary>
         /// Region_DropDownList 控件。
         /// </summary>
         /// <remarks>

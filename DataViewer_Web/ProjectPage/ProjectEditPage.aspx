@@ -23,6 +23,46 @@
 					</div>
 					<div class="row-fluid">
 						<div class="control-group span6">
+							<label class="control-label">经度</label>
+							<div class="controls">
+								<div class="row-fluid">
+									<div class="input-append span4">
+										<asp:TextBox ID="EastDegree_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">°</span>
+									</div>
+									<div class="input-append span4">
+										<asp:TextBox ID="EastMinute_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">′</span>
+									</div>
+									<div class="input-append span4">
+										<asp:TextBox ID="EastSecond_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">″</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="control-group span6">
+							<label class="control-label">纬度</label>
+							<div class="controls">
+								<div class="row-fluid">
+									<div class="input-append span4">
+										<asp:TextBox ID="NorthDegree_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">°</span>
+									</div>
+									<div class="input-append span4">
+										<asp:TextBox ID="NorthMinute_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">′</span>
+									</div>
+									<div class="input-append span4">
+										<asp:TextBox ID="NorthSecond_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<span class="add-on">″</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="control-group span6">
 							<label class="control-label" for='<%= Region_DropDownList.ClientID %>'>所属区域: </label>
 							<div class="controls">
 								<asp:DropDownList ID="Region_DropDownList" DataTextField="RegionName" DataValueField="ID" runat="server" CssClass="input-block-level"></asp:DropDownList>
@@ -123,7 +163,7 @@
 													<asp:DropDownList ID="SupervisionDepartment_DropDownList" runat="server" DataTextField="DepartmentName" DataValueField="ID" CssClass="input-block-level"></asp:DropDownList>
 												</div>
 												<div class="span2" style="text-align: center">
-													<asp:Button ID="AddSupervisionDepartment_Button" runat="server" Text="添加" CssClass="btn" OnClick="On_AddSupervisionDepartmentButton_Click"/>
+													<asp:Button ID="AddSupervisionDepartment_Button" runat="server" Text="添加" CssClass="btn" OnClick="On_AddSupervisionDepartmentButton_Click" />
 												</div>
 											</div>
 										</div>
@@ -151,7 +191,7 @@
 						</div>
 					</div>
 					<div class="row-fluid" style="text-align: center">
-						<asp:Button ID="Submit_Button" runat="server" Text="保存" CssClass="btn" Width="100" OnClick="On_SubmitButton_Click"/>
+						<asp:Button ID="Submit_Button" runat="server" Text="保存" CssClass="btn" Width="100" OnClick="On_SubmitButton_Click" />
 					</div>
 				</div>
 			</div>
