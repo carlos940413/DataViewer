@@ -158,7 +158,10 @@ namespace DataViewer_Web.ProjectPage
 					DataRow row = dt.NewRow();
 					while (concentrationsEnumerator.Current.AcquireOn == acquireOns[i])
 					{
-						row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = concentrationsEnumerator.Current.Amount;
+						if (concentrationsEnumerator.Current.Amount > 0)
+							row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = concentrationsEnumerator.Current.Amount;
+						else
+							row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = "过高";
 						if (!concentrationsEnumerator.MoveNext())
 							break;
 					}

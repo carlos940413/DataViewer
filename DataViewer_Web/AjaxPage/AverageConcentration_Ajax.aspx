@@ -27,7 +27,7 @@
 							<div class='<%# Container.DataItemIndex==0?"tab-pane active":"tab-pane" %>' id='<%# Eval("Key") %>'>
 								<asp:GridView runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataSource='<%# Eval("Value") %>'>
 									<Columns>
-										<asp:BoundField DataField="Value" DataFormatString="{0}/mL" HeaderText="浓度" />
+										<asp:BoundField DataField="Value" DataFormatString="{0:0.00}/mL" HeaderText="浓度" />
 										<asp:BoundField DataField="Key" DataFormatString="{0:yyyy}年{0:MM}月{0:dd}日 {0:HH}:{0:mm}:{0:ss}" HeaderText="采集时间" />
 									</Columns>
 								</asp:GridView>

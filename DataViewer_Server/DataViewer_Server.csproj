@@ -48,6 +48,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Host.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataViewer_Entity\DataViewer_Entity.csproj">
+      <Project>{5046bf9a-ba6a-4cbd-ba05-2570314d8b32}</Project>
+      <Name>DataViewer_Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
