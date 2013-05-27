@@ -19,7 +19,7 @@ namespace DataViewer_Server
 			doc.Load("Host.xml");
 			string ip = doc.GetElementsByTagName("host")[0].InnerText;
 			int port = Int32.Parse(doc.GetElementsByTagName("port")[0].InnerText);
-			IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("42.121.120.41"), port);
+			IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
 			TcpListener listener = new TcpListener(ipEndPoint);
 			listener.Start();
 			while (true)
@@ -34,9 +34,11 @@ namespace DataViewer_Server
 		{
 			bool connected = true;
 			NetworkStream stream = (client as TcpClient).GetStream();
+			StringBuilder dataStringBuilder = new StringBuilder();
 			while (connected)
 			{
 				List<byte> data_all = new List<byte>();
+				// Read all data from buffer
 				while (stream.DataAvailable)
 				{
 					byte[] data = new byte[1024];
@@ -51,12 +53,18 @@ namespace DataViewer_Server
 				}
 				if (data_all.Count != 0)
 				{
-					byte[] data = data_all.ToArray();
-					string data_string = new string(Encoding.UTF8.GetChars(data));
-					//Console.WriteLine(data_string);
-					ProcessData(data_string);
-					if (data_string == "disconnect")
-						connected = false;
+					dataStringBuilder.Append(new string(Encoding.UTF8.GetChars(data_all.ToArray())));
+					string data = dataStringBuilder.ToString();
+					if (data.Last<char>() == ';')
+					{
+						data = data.TrimEnd(';');
+						string pairs = data.Split('\n')[0];
+						pairs = pairs.Trim(' ');
+						if (pairs != "")
+							ProcessData(pairs);
+						if (data.Split('\n')[1] == "disconnect")
+							connected = false;
+					}
 				}
 			}
 			(client as TcpClient).Close();
@@ -65,14 +73,14 @@ namespace DataViewer_Server
 
 		static void ProcessData(string data)
 		{
-			data = data.TrimEnd('\n').TrimEnd(' ');
 			string[] keyValuePairs = data.Split(' ');
 			DateTime loggingOn = DateTime.Now;
 			foreach (string pair in keyValuePairs)
 			{
 				int nodeID = Int32.Parse(new string(pair.Split(':')[0].Reverse<char>().ToArray<char>()));
 				double concentration = ConvertToConcentration(Int32.Parse(new string(pair.Split(':')[1].Reverse<char>().ToArray<char>())));
-				Concentration.SubmitConcentration(nodeID, loggingOn, concentration);
+				//Concentration.SubmitConcentration(nodeID, loggingOn, concentration);
+				Console.WriteLine("{0} : {1:0.00}", nodeID, concentration);
 			}
 		}
 
