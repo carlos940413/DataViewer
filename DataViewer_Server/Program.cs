@@ -87,20 +87,22 @@ namespace DataViewer_Server
 		static double ConvertToConcentration(int data)
 		{
 			double ratio = ((double)data) / 30000 * 100;
+			if (ratio < 0.6)
+				return 0;
 			if (ratio < 2.2)
-				return (2.2 - 0.5) / 0.2 * (ratio - 0) + 0.5;
+				return 0.2 * (ratio - 0.6) / (2.2 - 0.6);
 			else if (ratio < 4.2)
-				return (4.2 - 2.2) / 0.2 * (ratio - 0.2) + 2.2;
+				return 0.2 * (ratio - 2.2) / (4.2 - 2.2) + 0.2;
 			else if (ratio < 6.1)
-				return (6.1 - 4.2) / 0.2 * (ratio - 0.2) + 4.2;
-			else if (ratio < 7.8)
-				return (7.8 - 6.1) / 0.2 * (ratio - 0.2) + 6.1;
-			else if (ratio < 11.7)
-				return (11.7 - 7.8) / 0.2 * (ratio - 0.2) + 7.8;
-			else if (ratio < 13.3)
-				return (13.3 - 11.7) / 0.2 * (ratio - 0.2) + 11.7;
-			else if (ratio < 15)
-				return (15 - 13.3) / 0.2 * (ratio - 0.2) + 13.3;
+				return 0.2 * (ratio - 4.2) / (6.1 - 4.2) + 0.4;
+			else if (ratio < 7.9)
+				return 0.2 * (ratio - 6.1) / (7.9 - 6.1) + 0.6;
+			else if (ratio < 9.3)
+				return 0.2 * (ratio - 7.9) / (9.3 - 7.9) + 0.8;
+			else if (ratio < 10.6)
+				return 0.2 * (ratio - 9.3) / (10.6 - 9.3) + 1.0;
+			else if (ratio < 12.1)
+				return 0.2 * (ratio - 10.6) / (12.1 - 10.6) + 1.2;
 			else
 				return -1;
 		}
