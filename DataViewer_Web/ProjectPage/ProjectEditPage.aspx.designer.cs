@@ -103,6 +103,24 @@ namespace DataViewer_Web.ProjectPage {
         protected global::System.Web.UI.WebControls.TextBox NorthSecond_TextBox;
         
         /// <summary>
+        /// StartOn_Calendar 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar StartOn_Calendar;
+        
+        /// <summary>
+        /// EndOn_Plan_Calendar 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar EndOn_Plan_Calendar;
+        
+        /// <summary>
         /// Region_DropDownList 控件。
         /// </summary>
         /// <remarks>

@@ -111,7 +111,7 @@ namespace DataViewer_Web.ProjectPage
 			List<SupervisionDepartment> supervisionDepartments;
 			if (Session["Project"] == null)
 			{
-				supervisionDepartments = Session["SupervisionDepartment"] as List<SupervisionDepartment>;
+				supervisionDepartments = Session["SupervisionDepartments"] as List<SupervisionDepartment>;
 				supervisionDepartments.Add(SupervisionDepartment.Get_ByID(Int32.Parse(SupervisionDepartment_DropDownList.SelectedValue)));
 				Session["SupervisionDepartment"] = supervisionDepartments;
 			}
@@ -151,13 +151,15 @@ namespace DataViewer_Web.ProjectPage
 				Project project = Project.CreateProject(Company.Get_ByID(Int32.Parse(Company_DropDownList.SelectedValue)),
 					Region.Get_ByID(Int32.Parse(Region_DropDownList.SelectedValue)),
 					Session["TeamInformation"] as Dictionary<Team, DutyOfficer>,
-					Session["SupervisionDepartment"] as List<SupervisionDepartment>);
+					Session["SupervisionDepartments"] as List<SupervisionDepartment>);
 				if (project != null)
 				{
 					project.ProjectName = ProjectName_TextBox.Text;
 					project.DutyOfficer = new DutyOfficer() { PersonName = DutyOfficerName_TextBox.Text, PhoneNumber = DutyOfficerPhoneNumber_TextBox.Text };
 					project.Location_East = Double.Parse(EastDegree_TextBox.Text) + Double.Parse(EastMinute_TextBox.Text) / 60 + Double.Parse(EastSecond_TextBox.Text) / 3600;
 					project.Location_North = Double.Parse(NorthDegree_TextBox.Text) + Double.Parse(NorthMinute_TextBox.Text) / 60 + Double.Parse(NorthSecond_TextBox.Text) / 3600;
+					project.StartOn = StartOn_Calendar.SelectedDate;
+					project.EndOn_Plan = EndOn_Plan_Calendar.SelectedDate;
 					project.Save();
 					Response.Redirect("/ProjectPage/ProjectDetailsPage.aspx?id=" + project.ID);
 				}
@@ -168,6 +170,8 @@ namespace DataViewer_Web.ProjectPage
 				project.ProjectName = ProjectName_TextBox.Text;
 				project.Location_East = Double.Parse(EastDegree_TextBox.Text) + Double.Parse(EastMinute_TextBox.Text) / 60 + Double.Parse(EastSecond_TextBox.Text) / 3600;
 				project.Location_North = Double.Parse(NorthDegree_TextBox.Text) + Double.Parse(NorthMinute_TextBox.Text) / 60 + Double.Parse(NorthSecond_TextBox.Text) / 3600;
+				project.StartOn = StartOn_Calendar.SelectedDate;
+				project.EndOn_Plan = EndOn_Plan_Calendar.SelectedDate;
 				project.Region = Region.Get_ByID(Int32.Parse(Region_DropDownList.SelectedValue));
 				project.Company = Company.Get_ByID(Int32.Parse(Company_DropDownList.SelectedValue));
 				project.DutyOfficer = new DutyOfficer() { PersonName = DutyOfficerName_TextBox.Text, PhoneNumber = DutyOfficerPhoneNumber_TextBox.Text };

@@ -27,15 +27,15 @@
 							<div class="controls">
 								<div class="row-fluid">
 									<div class="input-append span4">
-										<asp:TextBox ID="EastDegree_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="EastDegree_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">°</span>
 									</div>
 									<div class="input-append span4">
-										<asp:TextBox ID="EastMinute_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="EastMinute_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">′</span>
 									</div>
 									<div class="input-append span4">
-										<asp:TextBox ID="EastSecond_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="EastSecond_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">″</span>
 									</div>
 								</div>
@@ -46,18 +46,32 @@
 							<div class="controls">
 								<div class="row-fluid">
 									<div class="input-append span4">
-										<asp:TextBox ID="NorthDegree_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="NorthDegree_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">°</span>
 									</div>
 									<div class="input-append span4">
-										<asp:TextBox ID="NorthMinute_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="NorthMinute_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">′</span>
 									</div>
 									<div class="input-append span4">
-										<asp:TextBox ID="NorthSecond_TextBox" CssClass="span9" runat="server" TextMode="Number"></asp:TextBox>
+										<asp:TextBox ID="NorthSecond_TextBox" CssClass="span9" runat="server"></asp:TextBox>
 										<span class="add-on">″</span>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="control-group span6">
+							<label class="control-label" for="<%= StartOn_Calendar.ClientID %>">起始时间</label>
+							<div class="controls">
+								<asp:Calendar ID="StartOn_Calendar" runat="server"></asp:Calendar>
+							</div>
+						</div>
+						<div class="control-group span6">
+							<label class="control-label" for="<%= EndOn_Plan_Calendar.ClientID %>">结束时间</label>
+							<div class="controls">
+								<asp:Calendar ID="EndOn_Plan_Calendar" runat="server"></asp:Calendar>
 							</div>
 						</div>
 					</div>
