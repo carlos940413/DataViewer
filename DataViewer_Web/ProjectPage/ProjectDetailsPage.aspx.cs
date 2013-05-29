@@ -147,43 +147,55 @@ namespace DataViewer_Web.ProjectPage
 				dt.Columns.Add(new DataColumn("采集时间"));
 				// Initialize DataTable
 				List<DateTime> acquireOns = Concentration.GetAcquireOn_ByAreaIDANDStartTimeANDEndTime(area.ID, DateTime.MinValue, DateTime.MinValue);
-				int pageCount = (int)Math.Ceiling(acquireOns.Count / pageSize * 1.0);
-				int startIndex = Math.Min(page * pageSize, acquireOns.Count - 1);
-				int endIndex = Math.Min((page + 1) * pageSize - 1, acquireOns.Count - 1);
-				List<Concentration> concentrations = Concentration.Get_ByAreaIDANDStartTimeANDEndTime(area.ID, acquireOns[endIndex], acquireOns[startIndex]);
-				List<Concentration>.Enumerator concentrationsEnumerator = concentrations.GetEnumerator();
-				concentrationsEnumerator.MoveNext();
-				for (int i = startIndex; i <= endIndex; i++)
+				if (acquireOns.Count != 0)
 				{
-					DataRow row = dt.NewRow();
-					while (concentrationsEnumerator.Current.AcquireOn == acquireOns[i])
+					int pageCount = (int)Math.Ceiling(acquireOns.Count * 1.0 / pageSize);
+					int startIndex = Math.Min(page * pageSize, acquireOns.Count - 1);
+					int endIndex = Math.Min((page + 1) * pageSize - 1, acquireOns.Count - 1);
+					List<Concentration> concentrations = Concentration.Get_ByAreaIDANDStartTimeANDEndTime(area.ID, acquireOns[endIndex], acquireOns[startIndex]);
+					List<Concentration>.Enumerator concentrationsEnumerator = concentrations.GetEnumerator();
+					concentrationsEnumerator.MoveNext();
+					for (int i = startIndex; i <= endIndex; i++)
 					{
-						if (concentrationsEnumerator.Current.Amount > 0)
-							row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = concentrationsEnumerator.Current.Amount;
-						else
-							row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = "过高";
-						if (!concentrationsEnumerator.MoveNext())
-							break;
+						DataRow row = dt.NewRow();
+						while (concentrationsEnumerator.Current.AcquireOn == acquireOns[i])
+						{
+							if (concentrationsEnumerator.Current.Amount >= 0)
+								row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = concentrationsEnumerator.Current.Amount;
+							else
+								row[nodeID_columnIndex[concentrationsEnumerator.Current.Node.ID]] = "过高";
+							if (!concentrationsEnumerator.MoveNext())
+								break;
+						}
+						row[dt.Columns.Count - 1] = acquireOns[i];
+						dt.Rows.Add(row);
 					}
-					row[dt.Columns.Count - 1] = acquireOns[i];
-					dt.Rows.Add(row);
+					// Initialize Pager List
+					List<int> pager = new List<int>();
+					if (pageCount > pageButtonCount)
+					{
+						if (page < Math.Ceiling(pageButtonCount / 2.0))
+							for (int i = 0; i < pageButtonCount; i++)
+								pager.Add(i + 1);
+						else if (page >= (pageCount - pageButtonCount / 2))
+							for (int i = pageCount - pageButtonCount; i < pageCount; i++)
+								pager.Add(i + 1);
+						else
+						{
+							int startPageNumber = Math.Max(0, page - (pageButtonCount - 1) / 2);
+							int endPageNumber = Math.Min(pageCount, page + (pageButtonCount - (pageButtonCount - 1) / 2 - 1));
+							for (int i = startPageNumber; i <= endPageNumber; i++)
+								pager.Add(i + 1);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < pageCount; i++)
+							pager.Add(i + 1);
+					}
+					return new AreaView() { AreaID = area.ID, Concentrations = dt, CurrentPage = page, Pager = pager, PageCount = pageCount };
 				}
-				// Initialize Pager List
-				List<int> pager = new List<int>();
-				if (page < Math.Ceiling(pageButtonCount / 2.0))
-					for (int i = 0; i < pageButtonCount; i++)
-						pager.Add(i + 1);
-				else if (page >= (pageCount - pageButtonCount / 2))
-					for (int i = pageCount - pageButtonCount; i < pageCount; i++)
-						pager.Add(i + 1);
-				else
-				{
-					int startPageNumber = Math.Max(0, page - (pageButtonCount - 1) / 2);
-					int endPageNumber = Math.Min(pageCount, page + (pageButtonCount - (pageButtonCount - 1) / 2 - 1));
-					for (int i = startPageNumber; i <= endPageNumber; i++)
-						pager.Add(i + 1);
-				}
-				return new AreaView() { AreaID = area.ID, Concentrations = dt, CurrentPage = page, Pager = pager, PageCount = pageCount };
+				return new AreaView() { AreaID = area.ID, Concentrations = dt, CurrentPage = page, Pager = new List<int>(), PageCount = 0 };
 			}
 			else
 				return new AreaView() { AreaID = area.ID, Concentrations = new DataTable(), CurrentPage = page, Pager = new List<int>(), PageCount = 0 };
