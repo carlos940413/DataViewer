@@ -53,17 +53,19 @@ namespace DataViewer_Server
 				}
 				if (data_all.Count != 0)
 				{
-					dataStringBuilder.Append(new string(Encoding.UTF8.GetChars(data_all.ToArray())));
+					dataStringBuilder.Append(new string(Encoding.ASCII.GetChars(data_all.ToArray())));
 					string data = dataStringBuilder.ToString();
-					if (data.Last<char>() == ';')
+					data = data.Trim();
+					Console.WriteLine("{0} -> {1} ^ {2}", data, data.Length, data[data.Length - 1]);
+
+					if (data[data.Length - 1].CompareTo(';') == 0)
 					{
-						data = data.TrimEnd(';');
-						string pairs = data.Split('\n')[0];
-						pairs = pairs.Trim(' ');
+						connected = false;
+						string pairs = data.TrimEnd(';').Trim(' ');
 						if (pairs != "")
+						{
 							ProcessData(pairs);
-						if (data.Split('\n')[1] == "disconnect")
-							connected = false;
+						}
 					}
 				}
 			}
@@ -79,32 +81,34 @@ namespace DataViewer_Server
 			{
 				int nodeID = Int32.Parse(new string(pair.Split(':')[0].Reverse<char>().ToArray<char>()));
 				double concentration = ConvertToConcentration(Int32.Parse(new string(pair.Split(':')[1].Reverse<char>().ToArray<char>())));
-				//Concentration.SubmitConcentration(nodeID, loggingOn, concentration);
-				Console.WriteLine("{0} : {1:0.00}", nodeID, concentration);
+				Concentration.SubmitConcentration(nodeID, loggingOn, concentration);
+				//Console.WriteLine("{0} : {1:0.00}", nodeID, concentration);
 			}
 		}
 
 		static double ConvertToConcentration(int data)
 		{
 			double ratio = ((double)data) / 30000 * 100;
+			double concentration;
 			if (ratio < 0.6)
-				return 0;
-			if (ratio < 2.2)
-				return 0.2 * (ratio - 0.6) / (2.2 - 0.6);
+				concentration = 0;
+			else if (ratio < 2.2)
+				concentration = 0.2 * (ratio - 0.6) / (2.2 - 0.6);
 			else if (ratio < 4.2)
-				return 0.2 * (ratio - 2.2) / (4.2 - 2.2) + 0.2;
+				concentration = 0.2 * (ratio - 2.2) / (4.2 - 2.2) + 0.2;
 			else if (ratio < 6.1)
-				return 0.2 * (ratio - 4.2) / (6.1 - 4.2) + 0.4;
+				concentration = 0.2 * (ratio - 4.2) / (6.1 - 4.2) + 0.4;
 			else if (ratio < 7.9)
-				return 0.2 * (ratio - 6.1) / (7.9 - 6.1) + 0.6;
+				concentration = 0.2 * (ratio - 6.1) / (7.9 - 6.1) + 0.6;
 			else if (ratio < 9.3)
-				return 0.2 * (ratio - 7.9) / (9.3 - 7.9) + 0.8;
+				concentration = 0.2 * (ratio - 7.9) / (9.3 - 7.9) + 0.8;
 			else if (ratio < 10.6)
-				return 0.2 * (ratio - 9.3) / (10.6 - 9.3) + 1.0;
+				concentration = 0.2 * (ratio - 9.3) / (10.6 - 9.3) + 1.0;
 			else if (ratio < 12.1)
-				return 0.2 * (ratio - 10.6) / (12.1 - 10.6) + 1.2;
+				concentration = 0.2 * (ratio - 10.6) / (12.1 - 10.6) + 1.2;
 			else
-				return -1;
+				concentration = -1;
+			return concentration * 1000;
 		}
 	}
 }
