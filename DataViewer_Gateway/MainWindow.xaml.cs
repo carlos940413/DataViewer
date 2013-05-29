@@ -58,7 +58,7 @@ namespace DataViewer_ConfigureTool
 			AddNodeDialog dialog = new AddNodeDialog(Area_ComboBox.SelectedItem as Area);
 			dialog.Owner = this;
 			dialog.ShowDialog();
-			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
+			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Area_ComboBox.SelectedItem as Project).ID);
 		}
 
 		private void On_DeleteNodeButton_Click(object sender, RoutedEventArgs e)
@@ -67,12 +67,12 @@ namespace DataViewer_ConfigureTool
 			{
 				node.Delete();
 			}
-			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Project_ComboBox.SelectedItem as Project).ID);
+			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Area_ComboBox.SelectedItem as Project).ID);
 		}
 
 		private void On_RegisterButton_Click(object sender, RoutedEventArgs e)
 		{
-			SerialPort port = new SerialPort(Port_ComboBox.SelectedItem.ToString(), 38400, Parity.None, 8, StopBits.One);
+			SerialPort port = new SerialPort(Port_ComboBox.SelectedItem.ToString(), 9600, Parity.None, 8, StopBits.One);
 			try
 			{
 				port.Open();
@@ -87,6 +87,7 @@ namespace DataViewer_ConfigureTool
 					}
 					port.Write(node_information, 0, node_information.Length);
 				}
+				MessageBox.Show("注册成功");
 			}
 			catch (Exception)
 			{
