@@ -17,12 +17,19 @@ namespace DataViewer_Entity
 			PhoneNumber = "";
 		}
 
+        #region Properties
+        /// <summary>
+        /// 监管部门ID
+        /// </summary>
 		private int _ID;
 		public int ID
 		{
 			get { return _ID; }
 		}
 
+        /// <summary>
+        /// 监管部门名称
+        /// </summary>
 		private string _DepartmentName;
 		public string DepartmentName
 		{
@@ -30,12 +37,16 @@ namespace DataViewer_Entity
 			set { _DepartmentName = value; }
 		}
 
+        /// <summary>
+        /// 监管部门电话号码
+        /// </summary>
 		private string _PhoneNumber;
 		public string PhoneNumber
 		{
 			get { return _PhoneNumber; }
 			set { _PhoneNumber = value; }
 		}
+        #endregion
 
 		public void Save()
 		{
@@ -64,6 +75,11 @@ namespace DataViewer_Entity
 			return result;
 		}
 
+        /// <summary>
+        /// 根据ID获得监管部门
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 		public static SupervisionDepartment Get_ByID(int id)
 		{
 			List<SupervisionDepartment> supervisionDepartments = toList(DBHelper.SelectCommand("SupervisionDepartment_id", CommandType.StoredProcedure,
@@ -73,6 +89,10 @@ namespace DataViewer_Entity
 			return supervisionDepartments[0];
 		}
 
+        /// <summary>
+        /// 获取所有监管部门
+        /// </summary>
+        /// <returns></returns>
 		public static List<SupervisionDepartment> Get_All()
 		{
 			return toList(DBHelper.SelectCommand("SupervisionDepartment_all", CommandType.StoredProcedure));

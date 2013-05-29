@@ -16,18 +16,26 @@ namespace DataViewer_Entity
 			RegionName = "";
 		}
 
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 地区ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
 		}
 
+        /// <summary>
+        /// 地区名称
+        /// </summary>
 		private string _RegionName;
 		public string RegionName
 		{
 			get { return _RegionName; }
 			set { _RegionName = value; }
 		}
+        #endregion 
 
 		public void Save()
 		{
@@ -40,6 +48,10 @@ namespace DataViewer_Entity
 					new SqlParameter("@regionname", RegionName));
 		}
 
+        /// <summary>
+        /// 获取地区名称
+        /// </summary>
+        /// <returns></returns>
 		public override string ToString()
 		{
 			return RegionName;
@@ -58,6 +70,11 @@ namespace DataViewer_Entity
 			return result;
 		}
 
+        /// <summary>
+        /// 根据ID获取地区
+        /// </summary>
+        /// <param name="id">地区ID</param>
+        /// <returns>返回ID对应地区，若没有找到对应地区，返回Null</returns>
 		public static Region Get_ByID(int id)
 		{
 			List<Region> regions = toList(DBHelper.SelectCommand("Region_id", CommandType.StoredProcedure,
@@ -67,6 +84,10 @@ namespace DataViewer_Entity
 			return regions[0];
 		}
 
+        /// <summary>
+        /// 获取所有地区
+        /// </summary>
+        /// <returns></returns>
 		public static List<Region> Get_All()
 		{
 			return toList(DBHelper.SelectCommand("Region_all", CommandType.StoredProcedure));

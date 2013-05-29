@@ -28,6 +28,11 @@ namespace DataViewer_ConfigureTool.PopupDialog
 			this.project = project;
 		}
 
+        /// <summary>
+        /// 为某项目创建新区域，以区域名称文本框中字符串为区域名称
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_ConfirmButton_Click(object sender, RoutedEventArgs e)
 		{
 			Area area = Area.CreateArea(project);
@@ -36,6 +41,11 @@ namespace DataViewer_ConfigureTool.PopupDialog
 			this.Close();
 		}
 
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_CancelButton_Click(object sender, RoutedEventArgs e)
 		{
 			this.Close();

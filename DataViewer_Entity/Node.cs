@@ -20,7 +20,12 @@ namespace DataViewer_Entity
 			Description = "";
 		}
 
-		public static Node CreateNode(Area area)
+        /// <summary>
+        /// 根据区域创建结点
+        /// </summary>
+        /// <param name="area"></param>
+        /// <returns>若地区不存在，创建不成功，返回Null</returns>		
+        public static Node CreateNode(Area area)
 		{
 			if (area == null || area.ID == 0)
 				return null;
@@ -112,9 +117,9 @@ namespace DataViewer_Entity
 		}
 
 		/// <summary>
-		/// 通过项目id获取属于该项目的节点
+        /// 通过区域id获取属于该区域的节点
 		/// </summary>
-		/// <param name="projectid">项目id</param>
+		/// <param name="areaid">区域ID</param>
 		/// <returns></returns>
 		public static List<Node> Get_ByAreaID(int areaid)
 		{
@@ -141,7 +146,7 @@ namespace DataViewer_Entity
 		/// </summary>
 		/// <param name="projectid">工程id</param>
 		/// <param name="hardwareid">硬件设备id</param>
-		/// <returns></returns>
+		/// <returns>返回相应结点，若没有相应结点，返回ID=0的初始化对象</returns>
 		public static Node Get_ByAreaID_HardwareID(int areaid, int hardwareid)
 		{
 			List<Node> nodes = toList(DBHelper.SelectCommand("Node_areaidANDhardwareid", CommandType.StoredProcedure,

@@ -16,18 +16,26 @@ namespace DataViewer_Entity
 			LevelName = "";
 		}
 
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 资质等级ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
 		}
 
+        /// <summary>
+        /// 资质等级名称
+        /// </summary>
 		private string _LevelName;
 		public string LevelName
 		{
 			get { return _LevelName; }
 			set { _LevelName = value; }
 		}
+        #endregion
 
 		public void Save()
 		{
@@ -40,6 +48,10 @@ namespace DataViewer_Entity
 					new SqlParameter("@levelname", LevelName));
 		}
 
+        /// <summary>
+        /// 获取等级名称
+        /// </summary>
+        /// <returns></returns>
 		public override string ToString()
 		{
 			return LevelName;
@@ -58,6 +70,11 @@ namespace DataViewer_Entity
 			return result;
 		}
 
+        /// <summary>
+        /// 根据ID获取资质等级
+        /// </summary>
+        /// <param name="id">要查询的资质等级ID</param>
+        /// <returns>返回待查询的资质等级，若没有，返回Null</returns>
 		public static TeamLevel Get_ByID(int id)
 		{
 			List<TeamLevel> teamLevels = toList(DBHelper.SelectCommand("TeamLevel_id", CommandType.StoredProcedure,
@@ -67,6 +84,10 @@ namespace DataViewer_Entity
 			return teamLevels[0];
 		}
 
+        /// <summary>
+        /// 获取所有资质等级
+        /// </summary>
+        /// <returns></returns>
 		public static List<TeamLevel> Get_All()
 		{
 			return toList(DBHelper.SelectCommand("TeamLevel_all", CommandType.StoredProcedure));

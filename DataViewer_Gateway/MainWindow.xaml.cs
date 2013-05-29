@@ -35,6 +35,11 @@ namespace DataViewer_ConfigureTool
 			#endregion
 		}
 
+        /// <summary>
+        /// 区域名称下拉菜单有选中项时，更新硬件节点Datagrid，添加、注册、删除节点按钮可用。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_AreaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (Area_ComboBox.SelectedIndex >= 0)
@@ -53,6 +58,11 @@ namespace DataViewer_ConfigureTool
 			}
 		}
 
+        /// <summary>
+        /// 添加节点，弹出添加采集节点对话框，刷新节点列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_AddNodeButton_Click(object sender, RoutedEventArgs e)
 		{
 			AddNodeDialog dialog = new AddNodeDialog(Area_ComboBox.SelectedItem as Area);
@@ -61,6 +71,11 @@ namespace DataViewer_ConfigureTool
 			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Area_ComboBox.SelectedItem as Project).ID);
 		}
 
+        /// <summary>
+        /// 删除节点，刷新节点列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_DeleteNodeButton_Click(object sender, RoutedEventArgs e)
 		{
 			foreach (Node node in Node_DataGrid.SelectedItems)
@@ -70,6 +85,11 @@ namespace DataViewer_ConfigureTool
 			Node_DataGrid.ItemsSource = Node.Get_ByAreaID((Area_ComboBox.SelectedItem as Project).ID);
 		}
 
+        /// <summary>
+        /// 注册节点，打开端口，把所有节点ID写入端口。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_RegisterButton_Click(object sender, RoutedEventArgs e)
 		{
 			SerialPort port = new SerialPort(Port_ComboBox.SelectedItem.ToString(), 9600, Parity.None, 8, StopBits.One);
@@ -99,6 +119,11 @@ namespace DataViewer_ConfigureTool
 			}
 		}
 
+        /// <summary>
+        /// 工程名称下拉菜单有选中项时，更新区域名称下拉菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_PojectComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (Project_ComboBox.SelectedIndex >= 0)
@@ -113,6 +138,11 @@ namespace DataViewer_ConfigureTool
 			}
 		}
 
+        /// <summary>
+        /// 新建区域，弹出新建区域对话框，刷新区域名称下拉菜单。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void On_NewAreaButton_Click(object sender, RoutedEventArgs e)
 		{
 			AddAreaDialog dialog = new AddAreaDialog(Project_ComboBox.SelectedItem as Project);

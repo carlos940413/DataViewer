@@ -17,14 +17,20 @@ namespace DataViewer_Entity
 			Username = "";
 			Password = "";
 		}
-
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 管理员ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
 			set { _ID = value; }
 		}
 
+        /// <summary>
+        /// 管理员用户名
+        /// </summary>
 		private string _Username;
 		public string Username
 		{
@@ -32,6 +38,9 @@ namespace DataViewer_Entity
 			set { _Username = value; }
 		}
 
+        /// <summary>
+        /// 管理员密码
+        /// </summary>
 		private string _Password;
 		public string Password
 		{
@@ -43,6 +52,7 @@ namespace DataViewer_Entity
 				_Password = BitConverter.ToString(output).Replace("-","");
 			}
 		}
+        #endregion
 
 		public void Save()
 		{
@@ -71,6 +81,11 @@ namespace DataViewer_Entity
 			return result;
 		}
 
+        /// <summary>
+        /// 通过用户名获取管理员
+        /// </summary>
+        /// <param name="username">用户名</param>
+        /// <returns>返回相应的管理员，若没有，返回空</returns>
 		public static Administrator Get_ByUsername(string username)
 		{
 			List<Administrator> admins = toList(DBHelper.SelectCommand("Administrator_username", CommandType.StoredProcedure,
@@ -80,6 +95,11 @@ namespace DataViewer_Entity
 			return admins[0];
 		}
 
+        /// <summary>
+        /// 判断两个管理员用户名与密码是否相同
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>如果管理员用户名与密码相同，返回true，否则返回false</returns>
 		public override bool Equals(object obj)
 		{
 			Administrator admin = obj as Administrator;

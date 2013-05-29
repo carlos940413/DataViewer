@@ -18,7 +18,11 @@ namespace DataViewer_Entity
 			Address = "";
 		}
 
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 企业ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
@@ -34,6 +38,9 @@ namespace DataViewer_Entity
 			set { _CompanyName = value; }
 		}
 
+        /// <summary>
+        /// 企业法人代表
+        /// </summary>
 		private string _LegalRepresentative;
 		public string LegalRepresentative
 		{
@@ -41,14 +48,18 @@ namespace DataViewer_Entity
 			set { _LegalRepresentative = value; }
 		}
 
+       /// <summary>
+       /// 企业地址
+       /// </summary>
 		private string _Address;
 		public string Address
 		{
 			get { return _Address; }
 			set { _Address = value; }
 		}
+        #endregion
 
-		public void Save()
+        public void Save()
 		{
 			if (ID == 0)
 				_ID = DBHelper.InsertCommand("Company_Insert", CommandType.StoredProcedure,
@@ -82,7 +93,7 @@ namespace DataViewer_Entity
 		/// 通过ID查找企业
 		/// </summary>
 		/// <param name="id">所查找的企业ID</param>
-		/// <returns>返回待查找的企业, 如果未找到, 返回ID为0的初始化对象</returns>
+		/// <returns>返回待查找的企业, 如果未找到，返回Null</returns>
 		public static Company Get_ByID(int id)
 		{
 			List<Company> temp = toList(DBHelper.SelectCommand("Company_id", CommandType.StoredProcedure,
@@ -101,6 +112,11 @@ namespace DataViewer_Entity
 			return toList(DBHelper.SelectCommand("Company_all", CommandType.StoredProcedure));
 		}
 
+        /// <summary>
+        /// 通过企业名称模糊查询获取企业
+        /// </summary>
+        /// <param name="companyName">企业模糊名称</param>
+        /// <returns>返回企业List</returns>
 		public static List<Company> Get_ByFuzzyCompanyName(string companyName)
 		{
 			return toList(DBHelper.SelectCommand("Company_companynameFuzzy", CommandType.StoredProcedure,

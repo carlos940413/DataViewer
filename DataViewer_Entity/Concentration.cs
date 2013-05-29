@@ -27,6 +27,12 @@ namespace DataViewer_Entity
             result.Save();
         }
 
+        /// <summary>
+        /// 向数据库提交采集的数据
+        /// </summary>
+        /// <param name="nodeID">结点ID</param>
+        /// <param name="acquireOn">采集时间</param>
+        /// <param name="concentration">粉尘浓度</param>
 		public static void SubmitConcentration(int nodeID, DateTime acquireOn, double concentration)
 		{
 			if (nodeID == 0 || acquireOn == DateTime.MinValue)

@@ -23,6 +23,14 @@ namespace DataViewer_Entity
 			Node_Phone = "";
 		}
 
+        /// <summary>
+        /// 根据企业、地区、施工队信息、监管部门创建项目
+        /// </summary>
+        /// <param name="company">企业</param>
+        /// <param name="region">地区</param>
+        /// <param name="teamInformation">施工队信息</param>
+        /// <param name="supervisionDepartments">监管部门</param>
+        /// <returns>企业，地区，所有监管部门，施工队信息中所有施工队都存在时创建成功，返回新项目对象；否则创建不成功，返回Null</returns>
 		public static Project CreateProject(Company company, Region region, Dictionary<Team, DutyOfficer> teamInformation, List<SupervisionDepartment> supervisionDepartments)
 		{
 			if (company == null || region == null || company.ID == 0 || region.ID == 0)
@@ -73,6 +81,9 @@ namespace DataViewer_Entity
 			set { _ProjectName = value; }
 		}
 
+        /// <summary>
+        /// 施工队信息Dictionary（施工队，法人代表）
+        /// </summary>
 		private Dictionary<Team, DutyOfficer> _TeamInformation;
 		public Dictionary<Team, DutyOfficer> TeamInformation
 		{
@@ -80,6 +91,9 @@ namespace DataViewer_Entity
 			set { _TeamInformation = value; }
 		}
 
+        /// <summary>
+        /// 监管单位List
+        /// </summary>
 		private List<SupervisionDepartment> _SupervisionDepartments;
 		public List<SupervisionDepartment> SupervisionDepartments
 		{
@@ -97,6 +111,9 @@ namespace DataViewer_Entity
 			set { _Company = value; }
 		}
 
+        /// <summary>
+        /// 工程所属地区
+        /// </summary>
 		private Region _Region;
 		public Region Region
 		{
@@ -104,6 +121,9 @@ namespace DataViewer_Entity
 			set { _Region = value; }
 		}
 
+        /// <summary>
+        /// 工程项目负责人
+        /// </summary>
 		private DutyOfficer _DutyOfficer;
 		public DutyOfficer DutyOfficer
 		{

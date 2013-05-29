@@ -18,6 +18,12 @@ namespace DataViewer_Entity
 			Address = "";
 		}
 
+        /// <summary>
+        /// 创建施工队
+        /// </summary>
+        /// <param name="teamLevel">施工队资质等级</param>
+        /// <param name="teamType">施工队分包类型</param>
+        /// <returns>创建成功，返回新对象，ID为0，施工队名称为空。创建不成功，返回Null</returns>
 		public static Team CreateTeam(TeamLevel teamLevel, TeamType teamType)
 		{
 			if (teamLevel != null && teamType != null && teamLevel.ID != 0 && teamType.ID != 0)
@@ -25,7 +31,11 @@ namespace DataViewer_Entity
 			return null;
 		}
 
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 施工队ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
@@ -41,6 +51,9 @@ namespace DataViewer_Entity
 			set { _TeamName = value; }
 		}
 
+        /// <summary>
+        /// 法人代表
+        /// </summary>
 		private string _LegalRepresentative;
 		public string LegalRepresentative
 		{
@@ -48,6 +61,9 @@ namespace DataViewer_Entity
 			set { _LegalRepresentative = value; }
 		}
 
+        /// <summary>
+        /// 施工单位地址
+        /// </summary>
 		private string _Address;
 		public string Address
 		{
@@ -55,6 +71,9 @@ namespace DataViewer_Entity
 			set { _Address = value; }
 		}
 
+        /// <summary>
+        /// 资质等级
+        /// </summary>
 		private TeamLevel _TeamLevel;
 		public TeamLevel TeamLevel
 		{
@@ -62,12 +81,16 @@ namespace DataViewer_Entity
 			set { _TeamLevel = value; }
 		}
 
+        /// <summary>
+        /// 分包类型
+        /// </summary>
 		private TeamType _TeamType;
 		public TeamType TeamType
 		{
 			get { return _TeamType; }
 			set { _TeamType = value; }
 		}
+        #endregion
 
 		public void Save()
 		{
@@ -118,7 +141,7 @@ namespace DataViewer_Entity
 		/// 根据ID查找施工队信息
 		/// </summary>
 		/// <param name="id">施工队ID</param>
-		/// <returns>返回待查找的施工队, 如果未找到, 返回ID为0的初始化对象</returns>
+		/// <returns>返回待查找的施工队, 如果未找到, 返回Null</returns>
 		public static Team Get_ByID(int id)
 		{
 			List<Team> temp = toList(DBHelper.SelectCommand("Team_id", CommandType.StoredProcedure,
@@ -137,6 +160,11 @@ namespace DataViewer_Entity
 			return toList(DBHelper.SelectCommand("Team_all", CommandType.StoredProcedure));
 		}
 
+        /// <summary>
+        /// 通过模糊查询施工队名称获取施工队
+        /// </summary>
+        /// <param name="teamName">要查询的字符串</param>
+        /// <returns></returns>
 		public static List<Team> Get_ByFuzzyTeamName(string teamName)
 		{
 			return toList(DBHelper.SelectCommand("Team_teamnameFuzzy", CommandType.StoredProcedure,

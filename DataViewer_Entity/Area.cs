@@ -16,6 +16,11 @@ namespace DataViewer_Entity
 			AreaName = "";
 		}
 
+        /// <summary>
+        /// 为某项目创建区域
+        /// </summary>
+        /// <param name="project">项目名称</param>
+        /// <returns>返回新建的Area对象，地区ID为0，地区名称为空，项目为该项目。若该项目不存在，返回Null</returns>
 		public static Area CreateArea(Project project)
 		{
 			if (project == null || project.ID == 0)
@@ -23,13 +28,20 @@ namespace DataViewer_Entity
 			return new Area() { Project = project };
 		}
 
-		private int _ID;
+        #region Properties
+        /// <summary>
+        /// 区域ID
+        /// </summary>
+        private int _ID;
 		public int ID
 		{
 			get { return _ID; }
 			set { _ID = value; }
 		}
 
+        /// <summary>
+        /// 区域所属项目
+        /// </summary>
 		private Project _Project;
 		public Project Project
 		{
@@ -37,12 +49,16 @@ namespace DataViewer_Entity
 			set { _Project = value; }
 		}
 
+        /// <summary>
+        /// 区域名称
+        /// </summary>
 		private string _AreaName;
 		public string AreaName
 		{
 			get { return _AreaName; }
 			set { _AreaName = value; }
 		}
+        #endregion
 
 		public void Save()
 		{
@@ -75,6 +91,11 @@ namespace DataViewer_Entity
 			return result;
 		}
 
+        /// <summary>
+        /// 根据区域ID获取区域
+        /// </summary>
+        /// <param name="id">区域ID</param>
+        /// <returns>返回待查找的区域。如果未找到, 返回Null</returns>
 		public static Area Get_ByID(int id)
 		{
 			List<Area> areas = toList(DBHelper.SelectCommand("Area_id", CommandType.StoredProcedure,
@@ -84,12 +105,21 @@ namespace DataViewer_Entity
 			return areas[0];
 		}
 
+        /// <summary>
+        /// 根据项目ID获取该项目中的所有区域
+        /// </summary>
+        /// <param name="projectid">项目ID</param>
+        /// <returns>若项目中没有区域，返回count=0的List</returns>
 		public static List<Area> Get_ByProjectID(int projectid)
 		{
 			return toList(DBHelper.SelectCommand("Area_projectid", CommandType.StoredProcedure,
 				new SqlParameter("@projectid", projectid)));
 		}
 
+        /// <summary>
+        /// 获取所有的区域
+        /// </summary>
+        /// <returns></returns>
 		public static List<Area> Get_All()
 		{
 			return toList(DBHelper.SelectCommand("Area_all", CommandType.StoredProcedure));
